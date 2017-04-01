@@ -1,0 +1,71 @@
+{
+  "name": "Empresa",
+  "plural": "Empresas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cif": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "direccion": {
+      "type": "string",
+      "required": false
+    },
+    "localidad": {
+      "type": "string",
+      "required": true
+    },
+    "idprovincia": {
+      "type": "number",
+      "required": false
+    },
+    "logo": {
+      "type": "string",
+      "required": false
+    },
+    "telefono": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "fax": {
+      "type": "string",
+      "required": false
+    },
+    "n_empleados": {
+      "type": "number",
+      "required": false
+    },
+    "idsector": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "usuarios": {
+      "type": "hasMany",
+      "model": "Usuario",
+      "foreignKey": "usuarios",
+      "through": "Oferta"
+    },
+    "contactos": {
+      "type": "hasOne",
+      "model": "Contacto",
+      "foreignKey": "contactos"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

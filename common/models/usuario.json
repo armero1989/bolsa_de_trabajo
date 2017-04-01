@@ -1,0 +1,25 @@
+{
+  "name": "Usuario",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "empresas": {
+      "type": "hasMany",
+      "model": "Empresa",
+      "foreignKey": "empresas",
+      "through": "Oferta"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

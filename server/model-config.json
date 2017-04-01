@@ -13,6 +13,9 @@
       "./mixins"
     ]
   },
+  "Email": {
+    "dataSource": "emailDs"
+  },
   "User": {
     "dataSource": "db"
   },
@@ -26,13 +29,26 @@
   },
   "RoleMapping": {
     "dataSource": "db",
-    "public": false,
-    "options": {
-      "strictObjectIDCoercion": true
-    }
+    "public": false
   },
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Usuario": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Contacto": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Empresa": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Oferta": {
+    "dataSource": "db",
+    "public": true
   }
 }

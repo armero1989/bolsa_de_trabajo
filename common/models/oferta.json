@@ -1,0 +1,69 @@
+{
+  "name": "Oferta",
+  "plural": "Ofertas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "puesto": {
+      "type": "string",
+      "required": true
+    },
+    "vacantes": {
+      "type": "number",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string",
+      "required": true
+    },
+    "experiencia": {
+      "type": "string",
+      "required": true
+    },
+    "idprovincia": {
+      "type": "number",
+      "required": true
+    },
+    "localidad": {
+      "type": "string",
+      "required": true
+    },
+    "condiciones": {
+      "type": "string",
+      "required": false
+    },
+    "duracion_meses": {
+      "type": "number",
+      "required": true
+    },
+    "otras_consideraciones": {
+      "type": "string",
+      "required": false
+    },
+    "created_at": {
+      "type": "date",
+      "required": true
+    },
+    "fecha_caducidad": {
+      "type": "date",
+      "required": true
+    },
+    "cerrada": {
+      "type": "boolean",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "UserId": {
+      "type": "belongsTo",
+      "model": "Empresa",
+      "foreignKey": "Empresa"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
