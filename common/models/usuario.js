@@ -73,7 +73,7 @@ module.exports = function(Usuario) {
 			type: 'email',
 			to: usuario.email,
 			from: config.emailDs.transports[0].auth.user,
-			subject: 'Thanks for registering.',
+			subject: 'Gracias por registrar en la Bolsa de Trabajo.',
 			template: path.resolve(__dirname, '../../server/views/verify.ejs'),
 			redirect: '/verified',
 			user: usuario

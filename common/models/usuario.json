@@ -16,7 +16,7 @@
     "empresas": {
       "type": "hasMany",
       "model": "Empresa",
-      "foreignKey": "empresas",
+      "foreignKey": "user_empresa",
       "through": "Oferta"
     }
   },

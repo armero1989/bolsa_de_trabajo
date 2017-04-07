@@ -58,10 +58,15 @@
   },
   "validations": [],
   "relations": {
-    "UserId": {
+    "Empresa": {
       "type": "belongsTo",
       "model": "Empresa",
       "foreignKey": "Empresa"
+    },
+    "Trabajador": {
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": "Trabajador"
     }
   },
   "acls": [],
