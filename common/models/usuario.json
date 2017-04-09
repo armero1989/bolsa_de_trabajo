@@ -13,13 +13,45 @@
   },
   "validations": [],
   "relations": {
-    "empresas": {
+    "Empresa": {
       "type": "hasMany",
       "model": "Empresa",
       "foreignKey": "user_empresa",
       "through": "Oferta"
     }
   },
-  "acls": [],
+  "acls": [  {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "request_password_reset"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "reset_password_get"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "reset_password_post"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+}],
   "methods": {}
 }

@@ -54,10 +54,10 @@
   },
   "validations": [],
   "relations": {
-    "empresas": {
+    "Trabajador": {
       "type": "hasMany",
       "model": "Usuario",
-      "foreignKey": "user_empresa",
+      "foreignKey": "user_trabajador",
       "through": "Oferta"
     },
     "contactos": {
