@@ -1,10 +1,10 @@
 module.exports = function(app) {
   if (process.env.AUTOMIGRATE) {
-    var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+    var lbTables = ['User','AccessToken', 'ACL', 'RoleMapping', 'Role'];
     app.dataSources.db.automigrate(lbTables, function(er) {
       if (er) throw er;
       console.log('Loopback tables [', lbTables, '] created in ', app.dataSources.db.adapter.name);
-      var empleoTables = ['Usuario','Oferta','Empresa','Contacto'];
+      var empleoTables = ['Usuario','Oferta','Empresa','Contacto','Inscrito'];
       app.dataSources.db.automigrate(empleoTables, function(er) {
         if (er) throw er;
         console.log('Loopback tables [', empleoTables, '] created in ', app.dataSources.db.adapter.name);

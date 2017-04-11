@@ -1,0 +1,45 @@
+{
+  "name": "Inscrito",
+  "plural": "Inscritos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "Usuarios": {
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": "userId"
+    },
+    "Oferta": {
+      "type": "belongsTo",
+      "model": "Oferta",
+      "foreignKey": "ofertaId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

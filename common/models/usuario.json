@@ -13,14 +13,21 @@
   },
   "validations": [],
   "relations": {
-    "Empresa": {
+    "empresas": {
       "type": "hasMany",
       "model": "Empresa",
-      "foreignKey": "user_empresa",
+      "foreignKey": "empresaId",
       "through": "Oferta"
+    },
+    "ofertas": {
+      "type": "hasMany",
+      "model": "Usuario",
+      "foreignKey": "ofertaId",
+      "through": "Inscrito"
     }
   },
-  "acls": [  {
+  "acls": [
+    {
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$everyone",
@@ -52,6 +59,7 @@
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
-}],
+    }
+  ],
   "methods": {}
 }

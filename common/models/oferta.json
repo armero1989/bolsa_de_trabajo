@@ -58,17 +58,31 @@
   },
   "validations": [],
   "relations": {
-    "Empresa": {
+    "empresas": {
       "type": "belongsTo",
       "model": "Empresa",
-      "foreignKey": "Empresa"
+      "foreignKey": "empresaId"
     },
-    "Trabajador": {
-      "type": "belongsTo",
+    "usuarios": {
+      "type": "hasMany",
       "model": "Usuario",
-      "foreignKey": "Trabajador"
+      "foreignKey": "userId",
+      "through": "Inscrito"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

@@ -50,5 +50,9 @@
   "Oferta": {
     "dataSource": "db",
     "public": true
+  },
+  "Inscrito": {
+    "dataSource": "db",
+    "public": true
   }
 }

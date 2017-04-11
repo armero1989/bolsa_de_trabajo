@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2017 at 01:26 PM
+-- Generation Time: Apr 10, 2017 at 03:47 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -36,11 +36,6 @@ CREATE TABLE `AccessToken` (
   `userId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `AccessToken`
---
-
-TRUNCATE TABLE `AccessToken`;
 -- --------------------------------------------------------
 
 --
@@ -58,11 +53,6 @@ CREATE TABLE `ACL` (
   `principalId` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `ACL`
---
-
-TRUNCATE TABLE `ACL`;
 -- --------------------------------------------------------
 
 --
@@ -79,11 +69,6 @@ CREATE TABLE `Contacto` (
   `Empresa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `Contacto`
---
-
-TRUNCATE TABLE `Contacto`;
 -- --------------------------------------------------------
 
 --
@@ -106,11 +91,19 @@ CREATE TABLE `Empresa` (
   `idsector` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Truncate table before insert `Empresa`
+-- Table structure for table `Inscrito`
 --
 
-TRUNCATE TABLE `Empresa`;
+DROP TABLE IF EXISTS `Inscrito`;
+CREATE TABLE `Inscrito` (
+  `id` int(11) NOT NULL,
+  `trabajador` int(11) DEFAULT NULL,
+  `oferta` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -136,11 +129,6 @@ CREATE TABLE `Oferta` (
   `Trabajador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `Oferta`
---
-
-TRUNCATE TABLE `Oferta`;
 -- --------------------------------------------------------
 
 --
@@ -156,8 +144,6 @@ CREATE TABLE `Role` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-
 -- --------------------------------------------------------
 
 --
@@ -171,13 +157,6 @@ CREATE TABLE `RoleMapping` (
   `principalId` varchar(255) DEFAULT NULL,
   `roleId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Truncate table before insert `RoleMapping`
---
-
-TRUNCATE TABLE `RoleMapping`;
---
 
 -- --------------------------------------------------------
 
@@ -196,11 +175,6 @@ CREATE TABLE `User` (
   `verificationToken` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `User`
---
-
-TRUNCATE TABLE `User`;
 -- --------------------------------------------------------
 
 --
@@ -220,7 +194,9 @@ CREATE TABLE `Usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
-TRUNCATE TABLE `Usuario`;
+-- Indexes for dumped tables
+--
+
 --
 -- Indexes for table `AccessToken`
 --
@@ -243,6 +219,12 @@ ALTER TABLE `Contacto`
 -- Indexes for table `Empresa`
 --
 ALTER TABLE `Empresa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Inscrito`
+--
+ALTER TABLE `Inscrito`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -296,6 +278,11 @@ ALTER TABLE `Contacto`
 ALTER TABLE `Empresa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `Inscrito`
+--
+ALTER TABLE `Inscrito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `Oferta`
 --
 ALTER TABLE `Oferta`
@@ -304,12 +291,12 @@ ALTER TABLE `Oferta`
 -- AUTO_INCREMENT for table `Role`
 --
 ALTER TABLE `Role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `RoleMapping`
 --
 ALTER TABLE `RoleMapping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `User`
 --
@@ -319,7 +306,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT for table `Usuario`
 --
 ALTER TABLE `Usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
