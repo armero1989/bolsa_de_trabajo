@@ -23,9 +23,9 @@
   "validations": [],
   "relations": {
     "empresas": {
-      "type": "belongsTo",
+      "type": "hasOne",
       "model": "Empresa",
-      "foreignKey": "empresaId"
+      "foreignKey": "contactoId"
     }
   },
   "acls": [

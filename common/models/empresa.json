@@ -54,16 +54,20 @@
   },
   "validations": [],
   "relations": {
-    "usuarios": {
-      "type": "hasMany",
-      "model": "Usuario",
-      "foreignKey": "userId",
-      "through": "Oferta"
+    "Usuarios":{
+      "type":"hasOne",
+      "model":"Usuarios",
+      "foreignKey":"userId"
+    },
+    "Ofertas": {
+      "type": "hasOne",
+      "model": "Oferta",
+      "foreignKey": "ofertante"
     },
     "contactos": {
       "type": "hasOne",
       "model": "Contacto",
-      "foreignKey": "contactoId"
+      "foreignKey": "empresaId"
     }
   },
   "acls": [

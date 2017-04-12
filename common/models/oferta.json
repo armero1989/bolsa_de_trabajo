@@ -61,7 +61,7 @@
     "empresas": {
       "type": "belongsTo",
       "model": "Empresa",
-      "foreignKey": "empresaId"
+      "foreignKey": "ofertante"
     },
     "usuarios": {
       "type": "hasMany",

@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2017 at 03:47 PM
--- Server version: 5.7.17-0ubuntu0.16.04.1
+-- Generation Time: Apr 12, 2017 at 04:27 PM
+-- Server version: 5.7.17-0ubuntu0.16.04.2
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -66,7 +66,8 @@ CREATE TABLE `Contacto` (
   `apellidos` varchar(512) NOT NULL,
   `nombre` varchar(512) NOT NULL,
   `contactos` int(11) DEFAULT NULL,
-  `Empresa` int(11) DEFAULT NULL
+  `empresaId` int(11) DEFAULT NULL,
+  `empresa_usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -88,7 +89,8 @@ CREATE TABLE `Empresa` (
   `url` varchar(512) DEFAULT NULL,
   `fax` varchar(512) DEFAULT NULL,
   `n_empleados` int(11) DEFAULT NULL,
-  `idsector` varchar(512) DEFAULT NULL
+  `idsector` varchar(512) DEFAULT NULL,
+  `Usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
