@@ -22,10 +22,13 @@ app.start = function() {
   return app.listen(function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Web server listening at: %s', baseUrl);
+    console.log('\n API Bolsa de Trabajo \n Realizada por : Antonio Armero. \n Para IES DOS MARES.');
+    console.log('----------------------------------------------------------');
+    console.log('Servidor Web Node Escuchando Aqui: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
-      console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+      console.log('Navega por la REST API en %s%s', baseUrl, explorerPath);
+      console.log('----------------------------------------------------------');
     }
   });
 };

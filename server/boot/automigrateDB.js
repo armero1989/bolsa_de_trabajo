@@ -3,11 +3,12 @@ module.exports = function(app) {
     var lbTables = ['User','AccessToken', 'ACL', 'RoleMapping', 'Role'];
     app.dataSources.db.automigrate(lbTables, function(er) {
       if (er) throw er;
-      console.log('Loopback tables [', lbTables, '] created in ', app.dataSources.db.adapter.name);
+      console.log('--------------------------------------');
+      console.log('Tablas Loopback [', lbTables, '] creadas en ', app.dataSources.db.adapter.name);
       var empleoTables = ['Usuario','Oferta','Empresa','Contacto','Inscrito'];
       app.dataSources.db.automigrate(empleoTables, function(er) {
         if (er) throw er;
-        console.log('Loopback tables [', empleoTables, '] created in ', app.dataSources.db.adapter.name);
+        console.log('Tablas Loopback [', empleoTables, '] creadas en ', app.dataSources.db.adapter.name);
 
         var config = require('../config.local.js');
         var Usuario = app.models.Usuario;
@@ -19,6 +20,8 @@ module.exports = function(app) {
           if (err) throw err;
 
           if (count === 0) {
+            console.log('----------------------------');
+            console.log('Creacion de usuarios Pre-Establecidos');
             Usuario.create([{
               username: 'admin',
               apellidos: 'Plataforma',
