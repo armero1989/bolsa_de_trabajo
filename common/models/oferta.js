@@ -7,6 +7,32 @@ module.exports = function(Oferta) {
 
 
 
+//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
+	Oferta.afterRemote('create', function(context, oferta, next) {
+		console.log('> centro.afterRemote triggered');
+		var html = '<h1>La oferta ' + oferta.puesto+ ' se ha registrado en la web</h1>' +
+			'<ul>	<li>vacantes: ' + oferta.vacantes +
+			'</li>	<li>Descripcion: ' + oferta.descripcion +
+			'</li>	<li>En la Localidad : ' + oferta.localidad + 
+			'</li>	<li>Con las siguientes condiciones:'+oferta.condiciones+'</li></ul>';
+
+		Oferta.app.models.Email.send({
+			to: config.admin.email,
+			from: config.emailDs.transports[0].auth.user,
+			subject: 'Nueva Oferta de '+oferta.puesto +' en la localidad de : '+oferta.localidad+'. Registrada en la Bolsa de Trabajo',
+			text: 'La oferta ' + oferta.puesto+ ' se ha registrado en la web',
+			html: html
+		}, function(err, mail) {
+			if (err) throw err;
+			console.log('email sent!');
+			next();
+		});
+	});
+
+
+
+
+
 	Oferta.usuariosInscritos = function(id,cb){
 			var Inscrito = app.models.Inscrito;
 				
