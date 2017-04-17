@@ -5,7 +5,7 @@ module.exports = function(app) {
       if (er) throw er;
       console.log('--------------------------------------');
       console.log('Tablas Loopback [', lbTables, '] creadas en ', app.dataSources.db.adapter.name);
-      var empleoTables = ['Usuario','Oferta','Empresa','Contacto','Inscrito'];
+      var empleoTables = ['Usuario','Oferta','Empresa','Inscrito'];
       app.dataSources.db.automigrate(empleoTables, function(er) {
         if (er) throw er;
         console.log('Tablas Loopback [', empleoTables, '] creadas en ', app.dataSources.db.adapter.name);
