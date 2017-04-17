@@ -27,7 +27,6 @@ module.exports = function(Empresa) {
 			
 			
 		
-console.log('> centro.afterRemote triggered');
 		var html = '<h1>Su Empresa es '+usuario.nombre +' se ha registrado en la web</h1><hr>' +
 			'<ul>	<li>Nombre: ' + usuario.nombre +
 			'</li>	<li>Email: ' + usuario.email +

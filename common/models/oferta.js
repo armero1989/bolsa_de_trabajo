@@ -9,7 +9,6 @@ module.exports = function(Oferta) {
 
 //enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
 	Oferta.afterRemote('create', function(context, oferta, next) {
-		console.log('> centro.afterRemote triggered');
 		var html = '<h1>La oferta ' + oferta.puesto+ ' se ha registrado en la web</h1>' +
 			'<ul>	<li>vacantes: ' + oferta.vacantes +
 			'</li>	<li>Descripcion: ' + oferta.descripcion +
