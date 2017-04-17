@@ -60,12 +60,12 @@
       "foreignKey":"userId"
     },
     "Ofertas": {
-      "type": "hasOne",
+      "type": "hasMany",
       "model": "Oferta",
       "foreignKey": "ofertante"
     },
     "contactos": {
-      "type": "hasOne",
+      "type": "hasMany",
       "model": "Contacto",
       "foreignKey": "empresaId"
     }

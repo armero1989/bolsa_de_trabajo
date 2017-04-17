@@ -23,7 +23,7 @@
   "validations": [],
   "relations": {
     "empresas": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Empresa",
       "foreignKey": "contactoId"
     }
