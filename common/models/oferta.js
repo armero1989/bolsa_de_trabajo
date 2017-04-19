@@ -7,19 +7,27 @@ module.exports = function(Oferta) {
 
 
 
-//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
+	//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
 	Oferta.afterRemote('create', function(context, oferta, next) {
-		var html = '<h1>La oferta ' + oferta.puesto+ ' se ha registrado en la web</h1>' +
+		var html = '<h1>La oferta ' + oferta.puesto + ' se ha registrado en la web</h1>' +
+			'<h2>Con las siguientes Caracteristicas</h2><hr>' +
 			'<ul>	<li>vacantes: ' + oferta.vacantes +
 			'</li>	<li>Descripcion: ' + oferta.descripcion +
-			'</li>	<li>En la Localidad : ' + oferta.localidad + 
-			'</li>	<li>Con las siguientes condiciones:'+oferta.condiciones+'</li></ul>';
+			'</li>	<li>Con experiencia : ' + oferta.experiencia +
+			'</li>	<li>En la Provincia : ' + oferta.provincia +
+			'</li>	<li>En la Localidad : ' + oferta.localidad +
+			'</li>	<li>Con las siguientes condiciones:' + oferta.condiciones +
+			'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +
+			'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
+			'</li></ul>' +
+			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
+			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';;
 
 		Oferta.app.models.Email.send({
 			to: config.admin.email,
 			from: config.emailDs.transports[0].auth.user,
-			subject: 'Nueva Oferta de '+oferta.puesto +' en la localidad de : '+oferta.localidad+'. Registrada en la Bolsa de Trabajo',
-			text: 'La oferta ' + oferta.puesto+ ' se ha registrado en la web',
+			subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
+			text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
 			html: html
 		}, function(err, mail) {
 			if (err) throw err;
@@ -30,27 +38,26 @@ module.exports = function(Oferta) {
 
 
 
+	Oferta.usuariosInscritos = function(id, cb) {
+		var Inscrito = app.models.Inscrito;
+
+		Inscrito.count({
+			ofertaId: id
+		}, function(err, count) {
+			if (err) return cb(err);
+			return cb(null, ("El número de demandantes de empleo en esta oferta es de " + count));
+		});
 
 
-	Oferta.usuariosInscritos = function(id,cb){
-			var Inscrito = app.models.Inscrito;
-				
-				Inscrito.count( {ofertaId: id}, function(err, count) {
-		      		if (err) return cb(err);
-		      		return cb(null,("El número de demandantes de empleo en esta oferta es de " + count));
-		      	});
+
+	};
 
 
-
-
-		};
-
-
-Oferta.remoteMethod(
+	Oferta.remoteMethod(
 		'usuariosInscritos', {
 			description: 'Devuelve el número de demandantes inscritos en la oferta',
 			accepts: [{
-					arg: 'id',
+				arg: 'id',
 				type: 'integer',
 				required: true
 			}],
@@ -63,8 +70,7 @@ Oferta.remoteMethod(
 				verb: 'get'
 			},
 		}
-);
-
+	);
 
 
 

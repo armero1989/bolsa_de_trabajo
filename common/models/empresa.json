@@ -27,9 +27,9 @@
       "type": "string",
       "required": true
     },
-    "idprovincia": {
-      "type": "number",
-      "required": false
+    "provincia": {
+      "type": "string",
+      "required": true
     },
     "logo": {
       "type": "string",

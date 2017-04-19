@@ -15,15 +15,15 @@ module.exports = {
   restApiRoot: GLOBAL_CONFIG.restApiRoot,
   livereload: process.env.LIVE_RELOAD,
   isDevEnv: isDevEnv,
-/*  indexFile: require.resolve(isDevEnv ?
-    '../client/ngapp/index.html' : '../client/dist/index.html'),
-*/
+  /*  indexFile: require.resolve(isDevEnv ?
+      '../client/ngapp/index.html' : '../client/dist/index.html'),
+  */
   port: GLOBAL_CONFIG.port,
   legacyExplorer: GLOBAL_CONFIG.legacyExplorer,
-  
+
   admin: {
-  	email: process.env.ADMIN_EMAIL,
-  	password: process.env.ADMIN_PASSWORD
+    email: process.env.ADMIN_EMAIL,
+    password: process.env.ADMIN_PASSWORD
   },
 
   db: {
@@ -38,20 +38,18 @@ module.exports = {
   emailDs: {
     name: 'emailDs',
     connector: 'mail',
-    transports: [
-      {
-        type: 'smtp',
-        host: 'smtp.gmail.com',
-        secure: true,
-        port: 465,
-        tls: {
-          rejectUnauthorized: false
-        },
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD
-        }
+    transports: [{
+      type: 'smtp',
+      host: 'smtp.gmail.com',
+      secure: true,
+      port: 465,
+      tls: {
+        rejectUnauthorized: false
+      },
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
       }
-    ]
+    }]
   }
 };

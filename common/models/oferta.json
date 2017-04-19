@@ -23,8 +23,12 @@
       "type": "string",
       "required": true
     },
-    "idprovincia": {
-      "type": "number",
+    "empresa":{
+      "type":"string",
+      "requried":true
+    },
+    "provincia": {
+      "type": "string",
       "required": true
     },
     "localidad": {
