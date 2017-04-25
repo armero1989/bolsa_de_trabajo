@@ -1,0 +1,10 @@
+<section>
+  <article ng-repeat="r in ofertas.slice().reverse()">
+    <header>
+      <h1>{{r.create_at | date}} | {{r.puesto}}</h1>
+      <h2>{{r.empresa}}</h2>
+    </header>
+    <p>{{r.duracion_meses}}&#9733; - {{r.descripcion}}</p>
+    <p>{{r.condiciones}}</p>
+  </article>
+</section>

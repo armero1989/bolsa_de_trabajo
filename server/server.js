@@ -7,10 +7,10 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var app = module.exports = loopback();
-
+/*
 // configure view handler
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));*/
 
 // configure body parser
 app.use(bodyParser.urlencoded({
@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(loopback.token());
 
 app.start = function() {
+   app.emit('started');
   // start the web server
   return app.listen(function() {
     app.emit('started');
@@ -34,6 +35,10 @@ app.start = function() {
     }
   });
 };
+/*
+app.use('/express-status', function(req, res, next) {
+  res.json({ running: true });
+});*/
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
