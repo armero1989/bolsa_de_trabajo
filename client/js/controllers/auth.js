@@ -25,13 +25,14 @@ angular
       function($scope, AuthService, $state) {
     $scope.user = {
       email: 'baz@qux.com',
-      password: 'bazqux'
+      password: 'bazqux',
+      nombre:'baz'
     };
 
     $scope.register = function() {
-      AuthService.register($scope.user.email, $scope.user.password)
+      AuthService.register($scope.user.email, $scope.user.password, $scope.user.nombre)
         .then(function() {
-          $state.transitionTo('sign-up-success');
+          $state.transitionTo('/api/usuarios/login');
         });
     };
   }]);

@@ -2,6 +2,11 @@
   <form name="form" ng-submit="register()">
     <fieldset>
       <legend>Sign up form</legend>
+      
+      <div class="form-group">
+        <label>Nombre</label>
+        <input name="nombre" type="text" ng-model="user.nombre">
+      </div>
 
       <div class="form-group">
         <label>Email</label>

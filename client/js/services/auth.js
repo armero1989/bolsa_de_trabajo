@@ -24,11 +24,12 @@ angular
        });
     }
 
-    function register(email, password) {
+    function register(email, password,nombre) {
       return User
         .create({
          email: email,
-         password: password
+         password: password,
+         nombre: nombre
        })
        .$promise;
     }

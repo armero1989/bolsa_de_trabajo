@@ -54,7 +54,7 @@ angular
       })
       .state('sign-up', {
         url: '/api/usuarios',
-        templateUrl: 'views/sign-up-form.html',
+        templateUrl: 'views/sign-up-form.ejs',
         controller: 'SignUpController',
       })
       .state('sign-up-success', {
