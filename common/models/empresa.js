@@ -25,7 +25,12 @@ module.exports = function(Empresa) {
 			}
 			console.log(usuario);
 
-
+			empresa.updateAttribute('userId',usuario.id,function(err,empresa){
+				if (err) {
+					var err = new Error('Error al al atualizar userid de Empresa ');
+					err.statusCode = 404;
+					next(err);
+				}
 
 			var html = '<h1>Su Empresa es ' + usuario.nombre + ' se ha registrado en la web</h1><hr>' +
 				'<ul>	<li>Nombre: ' + usuario.nombre +
@@ -45,6 +50,7 @@ module.exports = function(Empresa) {
 				console.log('email sent!');
 				next();
 			});
+		});
 		});
 	});
 
