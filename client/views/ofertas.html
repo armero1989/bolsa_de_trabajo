@@ -1,0 +1,25 @@
+<section>
+ <div class="list-group">
+
+  <ol>  
+  <div>    
+  <li class="list-group-item" ng-repeat="oferta in Ofertas">
+<h3>Puesto:{{oferta.puesto}}</h3>
+
+  <ul>
+	  
+	  <li>vacantes:  {{ oferta.vacantes }}</li>	
+	  <li>Descripcion:  {{ oferta.descripcion }}</li>
+	  <li>Con experiencia :  {{ oferta.experiencia }}</li>
+	  <li>En la Provincia :  {{ oferta.provincia }}</li>
+	  <li>En la Localidad :  {{ oferta.localidad }}</li>	
+	  <li>Con las siguientes condiciones: {{ oferta.condiciones }}</li>	
+	  <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
+	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
+  </ul>
+  </li>
+  </div>
+    </ol>
+</div>
+
+</section>

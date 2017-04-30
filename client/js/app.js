@@ -6,27 +6,10 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('add-review', {
-        url: '/add-review',
-        templateUrl: 'views/review-form.html',
-        controller: 'AddReviewController',
-        authenticate: true
-      })
       .state('all-reviews', {
         url: '/api/Ofertas/Ofertas_find',
-        templateUrl: 'views/all-reviews.html',
-        controller: 'AllReviewsController'
-      })
-      .state('edit-review', {
-        url: '/edit-review/:id',
-        templateUrl: 'views/review-form.html',
-        controller: 'EditReviewController',
-        authenticate: true
-      })
-      .state('delete-review', {
-        url: '/delete-review/:id',
-        controller: 'DeleteReviewController',
-        authenticate: true
+        templateUrl: 'views/ofertas.html',
+        controller: 'AllOfertasController'
       })
       .state('forbidden', {
         url: '/api/usuarios/request_password_reset',
@@ -45,12 +28,6 @@ angular
       .state('logout', {
         url: '/api/usuarios/logout',
         controller: 'AuthLogoutController'
-      })
-      .state('my-reviews', {
-        url: '/api/Ofertas/Ofertas_find',
-        templateUrl: 'views/my-reviews.html',
-        controller: 'MyReviewsController',
-        authenticate: true
       })
       .state('sign-up', {
         url: '/api/usuarios',

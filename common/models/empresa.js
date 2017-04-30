@@ -27,7 +27,7 @@ module.exports = function(Empresa) {
 
 			empresa.updateAttribute('userId',usuario.id,function(err,empresa){
 				if (err) {
-					var err = new Error('Error al al atualizar userid de Empresa ');
+					var err = new Error('Error al al actualizar userid de Empresa ');
 					err.statusCode = 404;
 					next(err);
 				}

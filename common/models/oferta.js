@@ -9,6 +9,7 @@ module.exports = function(Oferta) {
 
 	//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
 	Oferta.afterRemote('create', function(context, oferta, next) {
+		var Empresa = app.models.Empresa;
 		var html = '<h1>La oferta ' + oferta.puesto + ' se ha registrado en la web</h1>' +
 			'<h2>Con las siguientes Caracteristicas</h2><hr>' +
 			'<ul>	<li>vacantes: ' + oferta.vacantes +
@@ -23,16 +24,31 @@ module.exports = function(Oferta) {
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
 			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';;
 
-		Oferta.app.models.Email.send({
-			to: config.admin.email,
-			from: config.emailDs.transports[0].auth.user,
-			subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
-			text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
-			html: html
-		}, function(err, mail) {
-			if (err) throw err;
-			console.log('email sent!');
-			next();
+		Empresa.findOne({
+			where: {
+				nombre: oferta.empresa
+			}
+		}, function(err, empresa) {
+
+			oferta.updateAttribute('ofertante', empresa.id, function(err, oferta) {
+				if (err) {
+					var err = new Error('Error al al actualizar el ofertante en Oferta ');
+					err.statusCode = 404;
+					next(err);
+				}
+				
+				Oferta.app.models.Email.send({
+					to: config.admin.email,
+					from: config.emailDs.transports[0].auth.user,
+					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
+					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
+					html: html
+				}, function(err, mail) {
+					if (err) throw err;
+					console.log('email sent!');
+					next();
+				});
+			});
 		});
 	});
 
