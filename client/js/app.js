@@ -6,7 +6,7 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('all-reviews', {
+      .state('ofertas', {
         url: '/api/Ofertas/Ofertas_find',
         templateUrl: 'views/ofertas.html',
         controller: 'AllOfertasController'
@@ -15,13 +15,18 @@ angular
         url: '/api/usuarios/request_password_reset',
         templateUrl: 'views/forbidden.html',
       })
+      .state('inscribirse', {
+        url: '/api/inscritos/',
+        templateUrl: 'views/inscrito.ejs',
+        controller: 'OneInscritoController'
+      })
       .state('login', {
         url: '/api/usuarios/login',
         templateUrl: 'views/login.html',
         controller: 'AuthLoginController'
       })
       .state('acredita', {
-        url: '/api/usuarios/login',
+        url: '/acredita',
         templateUrl: 'views/acredita.html',
         controller: 'AuthLoginController'
       })

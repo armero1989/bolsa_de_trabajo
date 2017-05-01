@@ -20,10 +20,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
     var m = url.match(/^(?:https?:)?\/\/([^\/]+)/);
     return m ? m[1] : null;
   }
-  // need to use the urlBase as the base to handle multiple
-  // loopback servers behind a proxy/gateway where the host
-  // would be the same.
-  var urlBaseHost = getHost(urlBase) ? urlBase : location.host;
+
+  var urlBaseHost = getHost(urlBase) || location.host;
 
 /**
  * @ngdoc overview
@@ -1055,12 +1053,50 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.User#prototype$verify
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Trigger user's identity verification with configured verifyOptions
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `verifyOptions` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "prototype$verify": {
+              url: urlBase + "/Users/:id/verify",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.User#confirm
              * @methodOf lbServices.User
              *
              * @description
              *
-             * Confirm a user registration with email verification token.
+             * Confirm a user registration with identity verification token.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1160,6 +1196,45 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "changePassword": {
               url: urlBase + "/Users/change-password",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.User#setPassword
+             * @methodOf lbServices.User
+             *
+             * @description
+             *
+             * Reset user's password via a password-reset token.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `id` – `{*=}` -
+             *
+             *  - `newPassword` – `{string}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "setPassword": {
+              url: urlBase + "/Users/reset-password",
               method: "POST",
             },
 
@@ -1410,7 +1485,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.User#prototype$updateAttributes
+             * @name lbServices.User#updateAttributes
              * @methodOf lbServices.User
              *
              * @description
@@ -1442,7 +1517,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `User` object.)
              * </em>
              */
-        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+        R["updateAttributes"] = R["prototype$patchAttributes"];
 
         /**
          * @ngdoc method
@@ -2575,12 +2650,50 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Usuario#prototype$verify
+             * @methodOf lbServices.Usuario
+             *
+             * @description
+             *
+             * Trigger user's identity verification with configured verifyOptions
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `verifyOptions` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "prototype$verify": {
+              url: urlBase + "/Usuarios/:id/verify",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Usuario#confirm
              * @methodOf lbServices.Usuario
              *
              * @description
              *
-             * Confirm a user registration with email verification token.
+             * Confirm a user registration with identity verification token.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2680,6 +2793,45 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "changePassword": {
               url: urlBase + "/Usuarios/change-password",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario#setPassword
+             * @methodOf lbServices.Usuario
+             *
+             * @description
+             *
+             * Reset user's password via a password-reset token.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `id` – `{*=}` -
+             *
+             *  - `newPassword` – `{string}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+            "setPassword": {
+              url: urlBase + "/Usuarios/reset-password",
               method: "POST",
             },
 
@@ -3218,7 +3370,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Usuario#prototype$updateAttributes
+             * @name lbServices.Usuario#updateAttributes
              * @methodOf lbServices.Usuario
              *
              * @description
@@ -3250,7 +3402,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Usuario` object.)
              * </em>
              */
-        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+        R["updateAttributes"] = R["prototype$patchAttributes"];
 
         /**
          * @ngdoc method
@@ -4856,7 +5008,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Empresa#prototype$updateAttributes
+             * @name lbServices.Empresa#updateAttributes
              * @methodOf lbServices.Empresa
              *
              * @description
@@ -4888,7 +5040,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+        R["updateAttributes"] = R["prototype$patchAttributes"];
 
 
         /**
@@ -6210,7 +6362,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Oferta#prototype$updateAttributes
+             * @name lbServices.Oferta#updateAttributes
              * @methodOf lbServices.Oferta
              *
              * @description
@@ -6242,7 +6394,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Oferta` object.)
              * </em>
              */
-        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+        R["updateAttributes"] = R["prototype$patchAttributes"];
 
 
         /**
@@ -7555,7 +7707,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Inscrito#prototype$updateAttributes
+             * @name lbServices.Inscrito#updateAttributes
              * @methodOf lbServices.Inscrito
              *
              * @description
@@ -7587,7 +7739,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Inscrito` object.)
              * </em>
              */
-        R["prototype$updateAttributes"] = R["prototype$patchAttributes"];
+        R["updateAttributes"] = R["prototype$patchAttributes"];
 
 
         /**
@@ -7754,7 +7906,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         'request': function(config) {
           // filter out external requests
           var host = getHost(config.url);
-          if (host && config.url.indexOf(urlBaseHost) === -1) {
+          if (host && host !== urlBaseHost) {
             return config;
           }
 

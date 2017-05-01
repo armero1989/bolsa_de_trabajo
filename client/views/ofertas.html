@@ -1,10 +1,12 @@
 <section>
- <div class="list-group">
-
-  <ol>  
+ <div class="col-sm-4">
+      <div class="panel panel-primary">
+        
+ 
   <div>    
   <li class="list-group-item" ng-repeat="oferta in Ofertas">
-<h3>Puesto:{{oferta.puesto}}</h3>
+<ol>   <div class="panel-heading"><h3>Puesto:{{oferta.puesto}}</h3></div>
+
 
   <ul>
 	  
@@ -18,8 +20,11 @@
 	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
   </ul>
   </li>
+  <li ng-show="currentUser"><a ui-sref="inscribirse" ui-sref-active="active">Inscribirse</a>
   </div>
     </ol>
+</div>
+
 </div>
 
 </section>

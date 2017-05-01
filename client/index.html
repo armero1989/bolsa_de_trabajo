@@ -1,38 +1,92 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="es" ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>Bolsa de Empleo</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="icon" href="images/escudo_2.jpg" size="16x16" type="image/jpg" draggable="false" >
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <header>
-      <h1>Bolsa de Empleo</h1>
-      <h2 ng-show="currentUser">Hello {{currentUser.email}}</h2>
-      <nav>
-        <ul>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Bolsa de Empleo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
           <li>
-            <a ui-sref="all-reviews" ui-sref-active="active">Todas las ofertas</a>
+            <a ui-sref="ofertas" ui-sref-active="active">Todas las ofertas</a>
           </li>
           <li ng-show="currentUser">
-            <a ui-sref="acredita">Acreditacion</a>
-          </li>
-          <li ng-hide="currentUser">
-            <a ui-sref="sign-up" ui-sref-active="active">Sign up</a>
-          </li>
-          <li ng-hide="currentUser">
-            <a ui-sref="login" ui-sref-active="active">Log in</a>
+            <a ui-sref="acredita"  ui-sref-active="active">Acreditacion</a>
           </li>
           <li ng-show="currentUser">
-            <a ui-sref="logout" ui-sref-active="active">Log out</a>
+            <a ui-sref="inscribirse" ui-sref-active="active">Inscribirse en Ofertas</a>
+          </li>
+          <li ng-hide="currentUser">
+         <a  ui-sref="login"  ui-sref-active="active">Iniciar Sesion</a>
+          </li>
+          <li ng-hide="currentUser">
+            <a ui-sref="sign-up" ui-sref-active="active">Registrate</a>
+          </li>
+          <li ng-show="currentUser">
+            <a ui-sref="logout" ui-sref-active="active">Cerrar Sesion</a>
           </li>
           
-        </ul>
-      </nav>
+       </div>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+ 
+</div>
+
     </header>
-
+  
+<div id="about" class="container-fluid">
     <main ui-view></main>
+</div>
 
+
+<div class="container">    
+  
+</div><br><br>
+ <!-- Add Google Maps -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(37.8275694,-0.7790958);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7SZlFSHFsQwdK2ndK3eiZ7VzTMKBtq4U&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+</div>
+
+<footer class="container-fluid text-center">
+    <a ui-sref="sign-up" ui-sref-active="active" class="btn btn-danger">Registrate</a>
+    <a ui-sref="login" ui-sref-active="active" class="btn btn-danger">Logueate</a>
+    <br>
+    <br>
+    <br>
+<p>© 2017 Bolsa de Empleo</p>  
+</footer>
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-resource.js"></script>
     <script src="vendor/angular-ui-router.js"></script>
@@ -40,6 +94,8 @@
     <script src="js/services/lb-services.js"></script>
     <script src="js/controllers/auth.js"></script>
     <script src="js/controllers/ofertas.js"></script>
+    <script src="js/controllers/inscritos.js"></script>
     <script src="js/services/auth.js"></script>
+    <script src="js/desarrollojquery.js"</script>
   </body>
 </html>

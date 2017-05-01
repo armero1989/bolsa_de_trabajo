@@ -1,0 +1,29 @@
+<section>
+  <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} Inscribirse</legend>
+
+     <div class="form-group" ng-repeat="oferta in Ofertas">
+      <input  class="form-group" type="radio" ng-model="Oferta" value="{{oferta.id}}">
+      <label><h3>Puesto:{{oferta.puesto}}</h3></label>
+
+
+  <ul>
+    
+    <li>vacantes:  {{ oferta.vacantes }}</li> 
+    <li>Descripcion:  {{ oferta.descripcion }}</li>
+    <li>Con experiencia :  {{ oferta.experiencia }}</li>
+    <li>En la Provincia :  {{ oferta.provincia }}</li>
+    <li>En la Localidad :  {{ oferta.localidad }}</li>  
+    <li>Con las siguientes condiciones: {{ oferta.condiciones }}</li> 
+    <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
+    <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
+  </ul>
+  </li>
+      </div>
+
+
+        <button class="btn btn-danger">{{action}} Inscripcion</button>
+    </fieldset>
+  </form>
+<section>

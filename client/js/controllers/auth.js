@@ -32,7 +32,7 @@ angular
     $scope.register = function() {
       AuthService.register($scope.user.email, $scope.user.password, $scope.user.nombre)
         .then(function() {
-          $state.transitionTo('/api/usuarios/login');
+          $state.go('/api/usuarios/login');
         });
     };
   }]);
