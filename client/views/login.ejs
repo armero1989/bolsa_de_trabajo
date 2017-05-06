@@ -1,8 +1,16 @@
 <section>
-  <form name="form" ng-submit="login()">
+  
+
+
+ <div class="container">
+        <div class="card card-container">
+           
+            <img id="profile-img" class="profile-img-card" src="../images/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form name="form" ng-submit="login()">
     <fieldset>
       <legend>Iniciar Sesion:</legend>
-
+ <span id="reauth-email" class="reauth-email"></span>
       <div class="form-group">
         <label>Email</label>
        <input class="form-control"  type="text" ng-model="user.email" placeholder="Email">
@@ -15,12 +23,17 @@
         <p class="alert alert-danger" ng-show="form.password.$error.required && submitted">
             Password es Requerida</p>
       </div>
-
+     <div class="form-group">
+           <!-- <a ui-sref="forbidden">Olvido su Contraseña</a> -->
+        </div>
       <div class="actions">
         <label></label>
-        <button class="btn btn-danger">Login</button>
+        <button class="btn btn-success">Loguearse</button>
       </div>
     </fieldset>
   </form>
-  <a ui-sref="forbidden">Olvido su Contraseña</a>
+
+         
+        </div><!-- /card-container -->
+    </div><!-- /container -->
 <section>

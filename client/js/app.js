@@ -12,8 +12,9 @@ angular
         controller: 'AllOfertasController'
       })
       .state('forbidden', {
-        url: '/api/usuarios/request_password_reset',
-        templateUrl: 'views/forbidden.html',
+        url: '/api/usuarios/usuario_resetPassword',
+        templateUrl: 'views/forbidden.ejs',
+        controller:'AuthResetController'
       })
       .state('inscribirse', {
         url: '/api/inscritos/',
@@ -22,7 +23,7 @@ angular
       })
       .state('login', {
         url: '/api/usuarios/login',
-        templateUrl: 'views/login.html',
+        templateUrl: 'views/login.ejs',
         controller: 'AuthLoginController'
       })
       .state('acredita', {

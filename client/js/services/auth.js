@@ -33,10 +33,21 @@ angular
        })
        .$promise;
     }
+function resetear(email) {
+
+      return User
+        .request_password_reset({email: email})
+        .$promise
+        .then(function() {
+         $rootScope.currentUser = null;
+       });
+      
+    }
 
     return {
       login: login,
       logout: logout,
-      register: register
+      register: register,
+      resetear:resetear
     };
   }]);

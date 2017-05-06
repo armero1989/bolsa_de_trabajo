@@ -88,9 +88,9 @@ module.exports = function(Usuario) {
 			console.log('> verification email sent:', response);
 
 			context.res.render('response', {
-				title: 'Signed up successfully',
-				content: 'Please check your email and click on the verification link ' +
-					'before logging in.',
+				title: 'Registrado exitosamente',
+				content: 'Recibiras un email de verificacion' +
+					'Despues logueate',
 				redirectTo: '/',
 				redirectToLinkText: 'Log in'
 			});
@@ -101,16 +101,16 @@ module.exports = function(Usuario) {
 	Usuario.on('resetPasswordRequest', function(info) {
 		var url = 'http://' + config.hostname + ':' + config.port + '/api/Usuarios/reset_password';
 		var html = 'Click <a href="' + url + '?access_token=' +
-			info.accessToken.id + '">here</a> to reset your password';
+			info.accessToken.id + '">Aqui</a> para resaetear tu contraseña';
 
 		Usuario.app.models.Email.send({
 			to: info.email,
 			from: info.email,
-			subject: 'Password reset',
+			subject: 'Resetear Contraseña',
 			html: html
 		}, function(err) {
-			if (err) return console.log('> error sending password reset email');
-			console.log('> sending password reset email to:', info.email);
+			if (err) return console.log('> error envio de contraseña email');
+			console.log('> enviado a :', info.email);
 		});
 	});
 

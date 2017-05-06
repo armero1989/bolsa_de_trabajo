@@ -18,7 +18,7 @@ body {
       margin-bottom: 30px;
   }  
   .jumbotron {
-      background-color: #f4511e;
+      background-color: #5ddf70;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
@@ -30,11 +30,11 @@ body {
       background-color: #f6f6f6;
   }
   .logo-small {
-      color: #f4511e;
+      color: #5ddf70;
       font-size: 50px;
   }
   .logo {
-      color: #f4511e;
+      color: #5ddf70;
       font-size: 200px;
   }
   .thumbnail {
@@ -49,13 +49,13 @@ body {
   }
   .carousel-control.right, .carousel-control.left {
       background-image: none;
-      color: #f4511e;
+      color: #5ddf70;
   }
   .carousel-indicators li {
-      border-color: #f4511e;
+      border-color: #5ddf70;
   }
   .carousel-indicators li.active {
-      background-color: #f4511e;
+      background-color: #5ddf70;
   }
   .item h4 {
       font-size: 19px;
@@ -68,7 +68,7 @@ body {
       font-style: normal;
   }
   .panel {
-      border: 1px solid #f4511e; 
+      border: 1px solid #5ddf70; 
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -76,13 +76,13 @@ body {
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
   .panel-footer .btn:hover {
-      border: 1px solid #f4511e;
+      border: 1px solid #5ddf70;
       background-color: #fff !important;
-      color: #f4511e;
+      color: #5ddf70;
   }
   .panel-heading {
       color: #fff !important;
-      background-color: #f4511e !important;
+      background-color: #5ddf70 !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
       border-top-left-radius: 0px;
@@ -90,10 +90,13 @@ body {
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
   }
+  .panel-heading h3 {
+      font-size: 32px;
+  }
   .panel-footer {
       background-color: white !important;
   }
-  .panel-footer h3 {
+  .panel-footer  h3 {
       font-size: 32px;
   }
   .panel-footer h4 {
@@ -102,12 +105,12 @@ body {
   }
   .panel-footer .btn {
       margin: 15px 0;
-      background-color: #f4511e;
+      background-color: #5ddf70;
       color: #fff;
   }
   .navbar {
       margin-bottom: 0;
-      background-color: #f4511e;
+      background-color: #5ddf70;
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -120,7 +123,7 @@ body {
       color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
+      color: #5ddf70 !important;
       background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
@@ -130,7 +133,7 @@ body {
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color: #5ddf70;
   }
   .slideanim {visibility:hidden;}
   #myModal{
@@ -149,6 +152,145 @@ body {
       -webkit-animation-duration: 1s;
       visibility: visible;
   }
+  /*
+ * Login
+ */
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(93, 223, 112), rgb(255, 255, 255));
+}
+
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+/* fin de login */
   @keyframes slide {
     0% {
       opacity: 0;
@@ -178,9 +320,15 @@ body {
         width: 100%;
         margin-bottom: 35px;
     }
+    .panel-heading  h3 {
+      font-size: 22px;
+  }
   }
   @media screen and (max-width: 480px) {
     .logo {
         font-size: 150px;
     }
+       .panel-heading h3 {
+      font-size: 15px;
+  }
   }

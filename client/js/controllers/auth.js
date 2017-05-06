@@ -10,7 +10,7 @@ angular
     $scope.login = function() {
       AuthService.login($scope.user.email, $scope.user.password)
         .then(function() {
-          $state.go('/api/usuarios/login');
+          $state.go('ofertas');
         });
     };
   }])
@@ -18,7 +18,7 @@ angular
       function($scope, AuthService, $state) {
     AuthService.logout()
       .then(function() {
-        $state.go('/api/Ofertas/ofertas_find');
+        $state.go('ofertas');
       });
   }])
   .controller('SignUpController', ['$scope', 'AuthService', '$state',
@@ -32,7 +32,20 @@ angular
     $scope.register = function() {
       AuthService.register($scope.user.email, $scope.user.password, $scope.user.nombre)
         .then(function() {
-          $state.go('/api/usuarios/login');
+          $state.transitionTo('login');
         });
     };
-  }]);
+  }])
+ .controller('AuthResetController', ['$scope', 'AuthService', '$state',
+      function($scope, AuthService, $state) {
+    $scope.user = {
+      email: ''
+    };
+
+    $scope.resetear = function() {
+      AuthService.resetear($scope.user.email)
+        .then(function() {
+           $state.includes("access_token", {access_token:access_token});
+        });
+    };
+  }])
