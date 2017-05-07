@@ -17,6 +17,7 @@ module.exports = function(Oferta) {
 			'</li>	<li>Con experiencia : ' + oferta.experiencia +
 			'</li>	<li>En la Provincia : ' + oferta.provincia +
 			'</li>	<li>En la Localidad : ' + oferta.localidad +
+			'</li>	<li>Salario Ofrecido : ' + oferta.salario_ofrecido +'€'+
 			'</li>	<li>Con las siguientes condiciones:' + oferta.condiciones +
 			'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +
 			'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
@@ -46,6 +47,17 @@ module.exports = function(Oferta) {
 				}, function(err, mail) {
 					if (err) throw err;
 					console.log('email sent!');
+					
+				});
+				Oferta.app.models.Email.send({
+					to: empresa.email,
+					from: config.emailDs.transports[0].auth.user,
+					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
+					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
+					html: html
+				}, function(err, mail) {
+					if (err) throw err;
+					console.log('email sent empresa!');
 					next();
 				});
 			});

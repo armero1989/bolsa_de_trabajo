@@ -23,9 +23,9 @@
       "type": "string",
       "required": true
     },
-    "empresa":{
-      "type":"string",
-      "requried":true
+    "empresa": {
+      "type": "string",
+      "requried": true
     },
     "provincia": {
       "type": "string",
@@ -33,6 +33,10 @@
     },
     "localidad": {
       "type": "string",
+      "required": true
+    },
+    "salario_ofrecido": {
+      "type": "number",
       "required": true
     },
     "condiciones": {
@@ -74,19 +78,16 @@
       "through": "Inscrito"
     }
   },
-  "acls": [
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW"
-    }
-  ],
+  "acls": [{
+    "accessType": "READ",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW"
+  }, {
+    "accessType": "*",
+    "principalType": "ROLE",
+    "principalId": "admin",
+    "permission": "ALLOW"
+  }],
   "methods": {}
 }
