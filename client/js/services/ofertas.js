@@ -21,15 +21,7 @@ angular
           duracion_meses:duracion_meses,
           fecha_caducidad:fecha_caducidad
        })
-       .$promise
-       .then(function(response) {
-          $rootScope.currentUser = {
-            id: response.user.id,
-            tokenId: response.id,
-            Empresa:response.user.Empresa,
-            email: email
-          };
-        });
+       .$promise;
     }
 
 
