@@ -34,6 +34,7 @@ module.exports = function(Inscrito) {
 						'</li>	<li>En la Localidad : ' + oferta.localidad +
 						'</li>	<li>Salario Ofrecido : ' + oferta.salario_ofrecido +'€'+
 						'</li>	<li>Con las siguientes condiciones:' + oferta.condiciones +
+						'</li>	<li>Con las siguientes Otras Consideraciones:' + oferta.otras_consideraciones +
 						'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +
 						'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
 
