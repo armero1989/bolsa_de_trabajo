@@ -5,7 +5,7 @@ var app = require('../../server/server.js');
 
 module.exports = function(Inscrito) {
 
-	Inscrito.validatesUniquenessOf('userId');
+
 	Inscrito.validatesUniquenessOf('ofertaId');
 
 	//enviar correo electrónico al administrador cuando se cree un nueva inscricion nueva

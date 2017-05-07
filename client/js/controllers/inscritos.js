@@ -5,7 +5,9 @@ angular
       $scope.action = 'Añadir';
       $scope.Inscrito = {};
       $scope.isDisabled = false;
-      $scope.Oferta;
+      $scope.Oferta={
+        id:''
+      }
 
 
       $scope.Ofertas = Oferta.find({
@@ -16,7 +18,7 @@ angular
         Inscrito
           .create({
             userId: $rootScope.currentUser.id,
-            ofertaId: $scope.Oferta
+            ofertaId: $scope.Oferta.id
           })
           
       };
