@@ -5,7 +5,19 @@ var app = require('../../server/server.js');
 
 module.exports = function(Oferta) {
 
-
+Oferta.observe('before save', function (ctx, next) {
+		if (ctx.isNewInstance) {
+			if (ctx.instance) {
+				var fecha=new Date();
+				console.log(fecha);
+				ctx.instance.unsetAttribute('created_at');
+				ctx.instance.created_at=new Date();
+			} else {
+				
+			}
+		}
+		next();
+});
 
 	//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
 	Oferta.afterRemote('create', function(context, oferta, next) {

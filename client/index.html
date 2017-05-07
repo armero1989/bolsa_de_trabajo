@@ -32,6 +32,9 @@
           <li ng-show="currentUser">
             <a ui-sref="acredita"  ui-sref-active="active">Acreditacion</a>
           </li>
+           <li ng-show="currentUser">
+            <a ui-sref="creaoferta"  ui-sref-active="active">Crear Oferta</a>
+          </li>
           <li ng-show="currentUser">
             <a ui-sref="inscribirse" ui-sref-active="active">Inscribirse en Ofertas</a>
           </li>
@@ -97,6 +100,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
     <script src="js/controllers/ofertas.js"></script>
     <script src="js/controllers/inscritos.js"></script>
     <script src="js/services/auth.js"></script>
+    <script src="js/services/ofertas.js"></script>
     <script src="js/desarrollojquery.js"</script>
   </body>
 </html>

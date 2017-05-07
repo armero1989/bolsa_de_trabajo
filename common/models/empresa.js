@@ -17,7 +17,8 @@ module.exports = function(Empresa) {
 			'nombre': empresa.nombre,
 			'email': empresa.email,
 			'password': '1234',
-			'emailVerified': true
+			'emailVerified': true,
+			'Empresa':true
 		}
 		Usuario.create(data, function(err, usuario) {
 			if (err) {

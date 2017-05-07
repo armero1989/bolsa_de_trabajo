@@ -9,6 +9,9 @@
     "nombre": {
       "type": "string",
       "required": true
+    },
+    "Empresa":{
+      "type":"boolean"
     }
   },
   "validations": [],

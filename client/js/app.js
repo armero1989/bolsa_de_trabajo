@@ -16,6 +16,11 @@ angular
         templateUrl: 'views/forbidden.ejs',
         controller:'AuthResetController'
       })
+       .state('creaoferta', {
+        url: '/api/Ofertas/',
+        templateUrl: 'views/createoferta.ejs',
+        controller: 'CreateOfertaController'
+      })
       .state('inscribirse', {
         url: '/api/inscritos/',
         templateUrl: 'views/inscrito.ejs',

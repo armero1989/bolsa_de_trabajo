@@ -1754,6 +1754,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "DELETE",
             },
 
+            // INTERNAL. Use Usuario.particulares.findById() instead.
+            "prototype$__findById__particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Usuario.particulares.destroyById() instead.
+            "prototype$__destroyById__particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Usuario.particulares.updateById() instead.
+            "prototype$__updateById__particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Usuario.ofertas.findById() instead.
             "prototype$__findById__ofertas": {
               params: {
@@ -1960,6 +1987,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$__count__accessTokens": {
               url: urlBase + "/Usuarios/:id/accessTokens/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Usuario.particulares() instead.
+            "prototype$__get__particulares": {
+              isArray: true,
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Usuario.particulares.create() instead.
+            "prototype$__create__particulares": {
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Usuario.particulares.destroyAll() instead.
+            "prototype$__delete__particulares": {
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Usuario.particulares.count() instead.
+            "prototype$__count__particulares": {
+              url: urlBase + "/Usuarios/:id/particulares/count",
               method: "GET",
             },
 
@@ -3031,6 +3083,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Oferta.particulares() instead.
+            "::get::Oferta::particulares": {
+              url: urlBase + "/Ofertas/:id/particulares",
+              method: "GET",
+            },
+
             // INTERNAL. Use Oferta.usuarios.findById() instead.
             "::findById::Oferta::usuarios": {
               params: {
@@ -3669,6 +3727,341 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.empresas.update = function() {
           var TargetResource = $injector.get("Empresa");
           var action = TargetResource["::update::Usuario::empresas"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Usuario.particulares
+     * @header lbServices.Usuario.particulares
+     * @object
+     * @description
+     *
+     * The object `Usuario.particulares` groups methods
+     * manipulating `Oferta` instances related to `Usuario`.
+     *
+     * Call {@link lbServices.Usuario#particulares Usuario.particulares()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario#particulares
+             * @methodOf lbServices.Usuario
+             *
+             * @description
+             *
+             * Queries particulares of Usuario.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `filter` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Oferta` object.)
+             * </em>
+             */
+        R.particulares = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::get::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#count
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Counts particulares of Usuario.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.particulares.count = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::count::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#create
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Creates a new instance in particulares of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Oferta` object.)
+             * </em>
+             */
+        R.particulares.create = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::create::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#createMany
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Creates a new instance in particulares of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Oferta` object.)
+             * </em>
+             */
+        R.particulares.createMany = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::createMany::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#destroyAll
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Deletes all particulares of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.particulares.destroyAll = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::delete::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#destroyById
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Delete a related item by id for particulares.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for particulares
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.particulares.destroyById = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::destroyById::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#findById
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Find a related item by id for particulares.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for particulares
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Oferta` object.)
+             * </em>
+             */
+        R.particulares.findById = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::findById::Usuario::particulares"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Usuario.particulares#updateById
+             * @methodOf lbServices.Usuario.particulares
+             *
+             * @description
+             *
+             * Update a related item by id for particulares.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Usuario id
+             *
+             *  - `fk` – `{*}` - Foreign key for particulares
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Oferta` object.)
+             * </em>
+             */
+        R.particulares.updateById = function() {
+          var TargetResource = $injector.get("Oferta");
+          var action = TargetResource["::updateById::Usuario::particulares"];
           return action.apply(R, arguments);
         };
     /**
@@ -5426,6 +5819,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Oferta.particulares() instead.
+            "prototype$__get__particulares": {
+              url: urlBase + "/Ofertas/:id/particulares",
+              method: "GET",
+            },
+
             // INTERNAL. Use Oferta.usuarios.findById() instead.
             "prototype$__findById__usuarios": {
               params: {
@@ -6094,6 +6493,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Usuario.particulares.findById() instead.
+            "::findById::Usuario::particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Usuario.particulares.destroyById() instead.
+            "::destroyById::Usuario::particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Usuario.particulares.updateById() instead.
+            "::updateById::Usuario::particulares": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Usuarios/:id/particulares/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Usuario.particulares() instead.
+            "::get::Usuario::particulares": {
+              isArray: true,
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Usuario.particulares.create() instead.
+            "::create::Usuario::particulares": {
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Usuario.particulares.createMany() instead.
+            "::createMany::Usuario::particulares": {
+              isArray: true,
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Usuario.particulares.destroyAll() instead.
+            "::delete::Usuario::particulares": {
+              url: urlBase + "/Usuarios/:id/particulares",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Usuario.particulares.count() instead.
+            "::count::Usuario::particulares": {
+              url: urlBase + "/Usuarios/:id/particulares/count",
+              method: "GET",
+            },
+
             // INTERNAL. Use Empresa.Ofertas.findById() instead.
             "::findById::Empresa::Ofertas": {
               params: {
@@ -6445,6 +6903,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.empresas = function() {
           var TargetResource = $injector.get("Empresa");
           var action = TargetResource["::get::Oferta::empresas"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Oferta#particulares
+             * @methodOf lbServices.Oferta
+             *
+             * @description
+             *
+             * Fetches belongsTo relation particulares.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Oferta id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Usuario` object.)
+             * </em>
+             */
+        R.particulares = function() {
+          var TargetResource = $injector.get("Usuario");
+          var action = TargetResource["::get::Oferta::particulares"];
           return action.apply(R, arguments);
         };
     /**

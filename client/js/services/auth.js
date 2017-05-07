@@ -10,6 +10,7 @@ angular
           $rootScope.currentUser = {
             id: response.user.id,
             tokenId: response.id,
+            Empresa:response.user.Empresa,
             email: email
           };
         });
