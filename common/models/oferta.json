@@ -24,8 +24,10 @@
       "required": true
     },
     "empresa": {
-      "type": "string",
-      "requried": true
+      "type": "string"
+    },
+    "particular": {
+      "type": "string"
     },
     "provincia": {
       "type": "string",
@@ -76,18 +78,33 @@
       "model": "Usuario",
       "foreignKey": "userId",
       "through": "Inscrito"
+    },
+    "particulares": {
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": "demandante"
     }
   },
-  "acls": [{
-    "accessType": "READ",
-    "principalType": "ROLE",
-    "principalId": "$everyone",
-    "permission": "ALLOW"
-  }, {
-    "accessType": "*",
-    "principalType": "ROLE",
-    "principalId": "admin",
-    "permission": "ALLOW"
-  }],
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
   "methods": {}
 }

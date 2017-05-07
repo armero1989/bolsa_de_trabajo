@@ -23,6 +23,11 @@
       "model": "Usuario",
       "foreignKey": "ofertaId",
       "through": "Inscrito"
+    },
+     "particulares": {
+      "type": "hasMany",
+      "model": "Oferta",
+      "foreignKey": "demandante"
     }
   },
   "acls": [

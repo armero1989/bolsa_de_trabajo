@@ -19,9 +19,9 @@
       "type": "string",
       "required": false
     },
-    "email":{
-      "type":"string",
-      "required":true
+    "email": {
+      "type": "string",
+      "required": true
     },
     "localidad": {
       "type": "string",
@@ -58,10 +58,10 @@
   },
   "validations": [],
   "relations": {
-    "Usuarios":{
-      "type":"hasOne",
-      "model":"Usuarios",
-      "foreignKey":"userId"
+    "Usuarios": {
+      "type": "hasOne",
+      "model": "Usuarios",
+      "foreignKey": "userId"
     },
     "Ofertas": {
       "type": "hasMany",
