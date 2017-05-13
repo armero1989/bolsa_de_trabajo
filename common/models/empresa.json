@@ -54,15 +54,13 @@
     "idsector": {
       "type": "string",
       "required": false
+    },
+    "userId":{
+      "type":"number"
     }
   },
   "validations": [],
   "relations": {
-    "Usuarios": {
-      "type": "hasOne",
-      "model": "Usuarios",
-      "foreignKey": "userId"
-    },
     "Ofertas": {
       "type": "hasMany",
       "model": "Oferta",

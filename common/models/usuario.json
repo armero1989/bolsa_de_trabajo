@@ -16,11 +16,6 @@
   },
   "validations": [],
   "relations": {
-    "empresas": {
-      "type": "hasOne",
-      "model": "Empresa",
-      "foreignKey": "userId"
-    },
     "ofertas": {
       "type": "hasMany",
       "model": "Usuario",
