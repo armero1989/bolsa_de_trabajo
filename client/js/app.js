@@ -16,6 +16,11 @@ angular
         templateUrl: 'views/forbidden.ejs',
         controller:'AuthResetController'
       })
+       .state('creaempresa', {
+        url: '/api/Empresas/',
+        templateUrl: 'views/createempresa.ejs',
+        controller: 'CreateEmpresaController'
+      })
        .state('creaoferta', {
         url: '/api/Ofertas/',
         templateUrl: 'views/createoferta.ejs',
@@ -56,7 +61,7 @@ angular
       // redirect to login page if not logged in
       if (next.authenticate && !$rootScope.currentUser) {
         event.preventDefault(); //prevent current page from loading
-        $state.go('forbidden');
+        $state.go('login');
       }
     });
   }]);

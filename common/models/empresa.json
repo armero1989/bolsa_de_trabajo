@@ -31,10 +31,6 @@
       "type": "string",
       "required": true
     },
-    "logo": {
-      "type": "string",
-      "required": false
-    },
     "telefono": {
       "type": "string",
       "required": true

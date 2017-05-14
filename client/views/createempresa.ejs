@@ -1,0 +1,84 @@
+<section>
+ <div class="container">
+        <div class="card card-container">
+
+         <form name="form" ng-submit="create()">
+    <fieldset>
+      <legend>Crear Empresa:</legend>
+ <span id="reauth-email" class="reauth-email"></span>
+ 	 <div class="form-group">
+        <label>CIF de la Empresa</label>
+       <input class="form-control"  type="text" ng-model="Empresa.cif" placeholder="CIF">
+        <p class="alert alert-danger" ng-show="form.cif.$error.required && submitted">CIF es Requerido</p>
+      </div>
+	<div class="form-group">
+        <label>Nombre de la Empresa</label>
+       <input class="form-control"  type="text" ng-model="Empresa.nombre" placeholder="nombre">
+        <p class="alert alert-danger" ng-show="form.nombre.$error.required && submitted">Nombre es Requerido</p>
+      </div>
+	<div class="form-group">
+        <label>Direccion de la Empresa</label>
+       <input class="form-control"  type="text" ng-model="Empresa.direccion" placeholder="direccion">
+        <p class="alert alert-danger" ng-show="form.direccion.$error.required && submitted">Direccion es Requerido</p>
+      </div>
+	<div class="form-group">
+        <label>Email de la Empresa</label>
+       <input class="form-control"  type="email" ng-model="Empresa.email" placeholder="email">
+        <p class="alert alert-danger" ng-show="form.email.$error.required && submitted">Email es Requerido</p>
+      </div>
+   	<div class="form-group">
+        <label>Localidad de la Empresa</label>
+       <input class="form-control"  type="text" ng-model="Empresa.localidad" placeholder="localidad">
+        <p class="alert alert-danger" ng-show="form.localidad.$error.required && submitted">Localidad es Requerido</p>
+      </div>
+    	<div class="form-group">
+        <label>Provincia de la Empresa</label>
+       <input class="form-control"  type="text" ng-model="Empresa.provincia" placeholder="provincia">
+        <p class="alert alert-danger" ng-show="form.provincia.$error.required && submitted">Provincia es Requerido</p>
+      </div>
+      <div class="form-group">
+        <label>Telefono de la Empresa</label>
+       <input class="form-control"  type="tel" ng-model="Empresa.telefono" placeholder="telefono">
+        <p class="alert alert-danger" ng-show="form.telefono.$error.required && submitted">telefono es Requerido</p>
+      </div>
+	<div class="form-group">
+        <label>Website de la Empresa</label>
+       <input class="form-control"  type="url" ng-model="Empresa.url" placeholder="Website de la Empresa">
+        <p class="alert alert-danger" ng-show="form.url.$error.required && submitted">Website es Requerido</p>
+      </div>
+      <div class="form-group">
+        <label>Fax de la Empresa</label>
+       <input class="form-control"  type="tel" ng-model="Empresa.fax" placeholder="Fax de la Empresa">
+        <p class="alert alert-danger" ng-show="form.fax.$error.required && submitted">Fax es Requerido</p>
+      </div>
+      <div class="form-group">
+        <label>Numero de Empleados de la Empresa</label>
+       <input class="form-control"  type="number" ng-model="Empresa.n_empleados" placeholder="Numero de Empleados de la Empresa">
+        <p class="alert alert-danger" ng-show="form.n_empleados.$error.required && submitted">Numero de Empleados es Requerido</p>
+      </div>
+      <div class="form-group">
+        <label>Sector</label>
+       <p >
+       <input  type="radio" name="sector" ng-model="Empresa.idsector" value="Sector Primario">
+       <span>Sector Primario</span>
+       </p>
+      <p >
+       <input   type="radio" name="sector" ng-model="Empresa.idsector" value="Sector Secundario">
+       <span>Sector Secundario</span>
+       </p>
+       <p >
+       <input  type="radio" name="sector" ng-model="Empresa.idsector" value="Sector Servicios">
+       <span>Sector Servicios</span>
+       </p>
+	<p class="alert alert-danger" ng-show="form.idsector.$error.required && submitted">Sector es Requerido
+      </div>
+
+ <div class="actions">
+        <label></label>
+        <button class="btn btn-success">Crear Empresa</button>
+      </div>
+    </fieldset>
+  </form>
+ 		 </div><!-- /card-container -->
+</div><!-- /container -->
+</section>

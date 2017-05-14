@@ -32,11 +32,14 @@
           <li ng-show="currentUser">
             <a ui-sref="acredita"  ui-sref-active="active">Acreditacion</a>
           </li>
+          <li ng-show="currentUser.admin">
+            <a ui-sref="creaempresa"  ui-sref-active="active">Crear Empresa</a>
+          </li>
            <li ng-show="currentUser">
             <a ui-sref="creaoferta"  ui-sref-active="active">Crear Oferta</a>
           </li>
-          <li ng-show="currentUser">
-            <a ui-sref="inscribirse" ui-sref-active="active">Inscribirse en Ofertas</a>
+          <li  ng-show="currentUser">
+            <a ng-hide="currentUser.Empresa" ui-sref="inscribirse" ui-sref-active="active">Inscribirse en Ofertas</a>
           </li>
           <li ng-hide="currentUser">
          <a  ui-sref="login"  ui-sref-active="active">Iniciar Sesion</a>
@@ -45,9 +48,13 @@
             <a ui-sref="sign-up" ui-sref-active="active">Registrate</a>
           </li>
           <li ng-show="currentUser">
-            <a ui-sref="logout" ui-sref-active="active">Cerrar Sesion</a>
+            <a ui-sref="ofertas"><span class="glyphicon glyphicon-user"></span> {{currentUser.nombre}}</a>           
+       </li>
+        <li ng-show="currentUser" >
+            <a ui-sref="logout" ui-sref-active="active"><span class="glyphicon glyphicon-log-out"></span>Cerrar Sesion</a>
           </li>
-          
+       </ul>
+       </li>
        </div>
   </div>
 </nav>
@@ -99,6 +106,8 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
     <script src="js/controllers/auth.js"></script>
     <script src="js/controllers/ofertas.js"></script>
     <script src="js/controllers/inscritos.js"></script>
+    <script src="js/controllers/empresas.js"></script>
+    <script src="js/services/empresas.js"></script>
     <script src="js/services/auth.js"></script>
     <script src="js/services/ofertas.js"></script>
     <script src="js/desarrollojquery.js"</script>

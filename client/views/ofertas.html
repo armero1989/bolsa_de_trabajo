@@ -22,7 +22,8 @@
 	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
   </ul>
   </div>
-  <a ui-sref="inscribirse" ng-show="currentUser" class="btn btn-success" ui-sref-active="active">Inscribirse</a>
+  <div ng-show="currentUser">
+  <a ui-sref="inscribirse"  ng-hide="currentUser.Empresa" class="btn btn-success" ui-sref-active="active">Inscribirse</a></div>
   </div>
 
 
