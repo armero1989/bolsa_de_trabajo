@@ -12,6 +12,9 @@
     },
     "Empresa":{
       "type":"boolean"
+    },
+    "admin":{
+      "type":"boolean"
     }
   },
   "validations": [],

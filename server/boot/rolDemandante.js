@@ -8,10 +8,10 @@ module.exports = function(app) {
       //Si no es user devuelve un false
       return process.nextTick(() => cb(null, false));
     }
-    //El usuario debe estar como creador de una inscrito.
-    var inscrito = app.models.Inscrito;
-    inscrito.count({
-      userId: userId
+    //El usuario debe estar como creador de una oferta.
+    var Oferta = app.models.Oferta;
+    Oferta.count({
+      demandante: userId
     }, function(err, count) {
       if (err) return cb(err);
       if (count > 0) {

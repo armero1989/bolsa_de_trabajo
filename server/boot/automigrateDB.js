@@ -27,7 +27,8 @@ module.exports = function(app) {
               apellidos: 'Plataforma',
               nombre: 'Administrador',
               email: config.admin.email,
-              password: config.admin.password
+              password: config.admin.password,
+              admin:1
             }], function(err, users) {
               if (err) throw err;
 

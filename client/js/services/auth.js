@@ -11,7 +11,8 @@ angular
             id: response.user.id,
             tokenId: response.id,
             Empresa:response.user.Empresa,
-            email: email
+            email: email,
+            admin:response.user.admin
           };
         });
     }
