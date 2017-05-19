@@ -73,15 +73,15 @@
       "model": "Empresa",
       "foreignKey": "ofertante"
     },
-    "usuarios": {
+    "demandante": {
       "type": "hasMany",
-      "model": "Usuario",
+      "model": "Demandante",
       "foreignKey": "userId",
       "through": "Inscrito"
     },
-    "particulares": {
+    "demandantes": {
       "type": "belongsTo",
-      "model": "Usuario",
+      "model": "demandante",
       "foreignKey": "demandante"
     }
   },

@@ -10,25 +10,24 @@
       "type": "string",
       "required": true
     },
-    "Empresa":{
-      "type":"boolean"
+    "Empresa": {
+      "type": "boolean"
     },
-    "admin":{
-      "type":"boolean"
+    "admin": {
+      "type": "boolean"
     }
   },
   "validations": [],
   "relations": {
-    "ofertas": {
-      "type": "hasMany",
-      "model": "Usuario",
-      "foreignKey": "ofertaId",
-      "through": "Inscrito"
+    "Empresas":{
+      "type":"hasOne",
+      "model":"Empresa",
+      "foreignKey":""
     },
-     "particulares": {
-      "type": "hasMany",
-      "model": "Oferta",
-      "foreignKey": "demandante"
+    "demandantes": {
+      "type": "hasOne",
+      "model": "Demandante",
+      "foreignKey": ""
     }
   },
   "acls": [

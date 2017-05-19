@@ -8,7 +8,7 @@ module.exports = function(Inscrito) {
 
 	Inscrito.validatesUniquenessOf('ofertaId');
 
-	//enviar correo electrónico al administrador cuando se cree un nueva inscricion nueva
+	//enviar correo electrónico al administrador cuando se cree un nueva inscripcion nueva
 	Inscrito.afterRemote('create', function(context, inscrito, next) {
 		var Usuario = app.models.Usuario;
 		var Oferta =app.models.Oferta;
@@ -25,8 +25,7 @@ module.exports = function(Inscrito) {
 			
 
 					var html = '<h1>Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '.</h1>'+
-					
-						'<h2>En la Empresa: '+oferta.empresa+' Con las siguientes Caracteristicas</h2><hr>'+
+						'<h2>Con las siguientes Caracteristicas</h2><hr>' +
 						'<ul>	<li>vacantes: ' + oferta.vacantes +
 						'</li>	<li>Descripcion: ' + oferta.descripcion +
 						'</li>	<li>Con experiencia : ' + oferta.experiencia +

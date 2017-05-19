@@ -51,8 +51,8 @@
       "type": "string",
       "required": false
     },
-    "userId":{
-      "type":"number"
+    "posicion": {
+      "type": "geopoint"
     }
   },
   "validations": [],
@@ -61,6 +61,11 @@
       "type": "hasMany",
       "model": "Oferta",
       "foreignKey": "ofertante"
+    },
+    "usuarios": {
+      "type": "hasOne",
+      "model": "Usuario",
+      "foreignKey": ""
     }
   },
   "acls": [

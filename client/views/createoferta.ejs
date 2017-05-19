@@ -47,19 +47,6 @@
             Localidad es Requerida</p>
       </div>
 
-        <div ng-show="currentUser.Empresa" class="form-group">
-        <label>Empresa</label>
-        <input class="form-control" type="text" ng-model="Oferta.empresa" placeholder="Empresa">
-        <p class="alert alert-danger" ng-show="form.empresa.$error.required && submitted">
-            Empresa es Requerida</p>
-      </div>
-
-      <div ng-hide="currentUser.Empresa" class="form-group">
-        <label>Nombre del Particular</label>
-        <input class="form-control" type="text" ng-model="Oferta.particular" placeholder="Particular">
-        <p class="alert alert-danger" ng-show="form.particular.$error.required && submitted">
-            Particular es Requerida</p>
-      </div>
 
       <div class="form-group">
         <label>Salario Ofrecido</label>

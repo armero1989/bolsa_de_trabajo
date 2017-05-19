@@ -37,13 +37,7 @@ Oferta.observe('before save', function (ctx, next) {
 			'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
 			'</li></ul>' +
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
-			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';;
-if(oferta.empresa){
-		Empresa.findOne({
-			where: {
-				nombre: oferta.empresa
-			}
-		}, function(err, empresa) {
+			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
 
 			oferta.updateAttribute('ofertante', empresa.id, function(err, oferta) {
 				if (err) {
@@ -63,58 +57,7 @@ if(oferta.empresa){
 					console.log('email sent!');
 					
 				});
-				Oferta.app.models.Email.send({
-					to: empresa.email,
-					from: config.emailDs.transports[0].auth.user,
-					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
-					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
-					html: html
-				}, function(err, mail) {
-					if (err) throw err;
-					console.log('email sent empresa!');
-					next();
-				});
-			});
 		});
-	}else{
-		Usuario.findOne({
-			where: {
-				nombre: oferta.particular
-			}
-		}, function(err, usuario) {
-
-			oferta.updateAttribute('demandante', usuario.id, function(err, oferta) {
-				if (err) {
-					var err = new Error('Error al al actualizar el ofertante en Oferta ');
-					err.statusCode = 404;
-					next(err);
-				}
-				
-				Oferta.app.models.Email.send({
-					to: config.admin.email,
-					from: config.emailDs.transports[0].auth.user,
-					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
-					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
-					html: html
-				}, function(err, mail) {
-					if (err) throw err;
-					console.log('email sent!');
-					
-				});
-				Oferta.app.models.Email.send({
-					to: usuario.email,
-					from: config.emailDs.transports[0].auth.user,
-					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
-					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
-					html: html
-				}, function(err, mail) {
-					if (err) throw err;
-					console.log('email sent empresa!');
-					next();
-				});
-			});
-		});
-	}
 	});
 
 

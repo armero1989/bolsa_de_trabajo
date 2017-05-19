@@ -50,5 +50,9 @@
   "Inscrito": {
     "dataSource": "db",
     "public": true
+  },
+  "Demandante": {
+    "dataSource": "db",
+    "public": true
   }
 }

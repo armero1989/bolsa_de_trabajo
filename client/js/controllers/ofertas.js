@@ -17,8 +17,6 @@ angular
         experiencia:'',
         provincia:'',
         localidad:'',
-        empresa:'',
-        particular:'',
         salario_ofrecido:'',
         condiciones:'',
         otras_consideraciones:'',
@@ -28,7 +26,7 @@ angular
 
      $scope.create = function() {
       OfertService.create($scope.Oferta.puesto,$scope.Oferta.vacantes,$scope.Oferta.descripcion,$scope.Oferta.experiencia,$scope.Oferta.provincia,
-      	$scope.Oferta.localidad,$scope.Oferta.empresa,$scope.Oferta.particular,$scope.Oferta.salario_ofrecido,
+      	$scope.Oferta.localidad,$scope.Oferta.salario_ofrecido,
       	$scope.Oferta.condiciones,$scope.Oferta.otras_consideraciones,$scope.Oferta.duracion_meses,
       	$scope.Oferta.fecha_caducidad)
         .then(function() {

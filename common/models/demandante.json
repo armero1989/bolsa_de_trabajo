@@ -1,0 +1,90 @@
+{
+  "name": "Demandante",
+  "plural": "Demandantes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "apellidos": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
+    "fecha_nac": {
+      "type": "date"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "sexo": {
+      "type": "string"
+    },
+    "titulaciones": {
+      "type": "string"
+    },
+    "experiencia": {
+      "type": "string"
+    },
+    "idiomas": {
+      "type": "string"
+    },
+    "conducir": {
+      "type": "boolean"
+    },
+    "camion": {
+      "type": "boolean"
+    },
+    "discapacitado": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ofertas": {
+      "type": "hasMany",
+      "model": "Oferta",
+      "foreignKey": "ofertaId",
+      "through": "Inscrito"
+    },
+    "usuarios": {
+      "type": "hasOne",
+      "model": "Usuario",
+      "foreignKey": ""
+    },
+    "demandantes": {
+      "type": "hasMany",
+      "model": "Oferta",
+      "foreignKey": "demandante"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
