@@ -27,12 +27,14 @@ angular
        });
     }
 
-    function register(email, password,nombre) {
+    function register(email, password,nombre,telefono) {
       return User
         .create({
          email: email,
          password: password,
-         nombre: nombre
+         nombre: nombre,
+         telefono:telefono
+        
        })
        .$promise;
     }

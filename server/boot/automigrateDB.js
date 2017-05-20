@@ -28,6 +28,7 @@ module.exports = function(app) {
               nombre: 'Administrador',
               email: config.admin.email,
               password: config.admin.password,
+              telefono:'968 17 85 00',
               admin:1
             }], function(err, users) {
               if (err) throw err;

@@ -16,7 +16,13 @@
         <p class="alert alert-danger" ng-show="form.nombre.$error.required && submitted">
             Nombre es Requerida</p>
       </div>
-
+      
+ <div class="form-group">
+        <label>Telefono</label>
+        <input class="form-control" type="text" ng-model="user.telefono" placeholder="Telefono de Contacto" value="" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+        <p class="alert alert-danger" ng-show="form.fecha_nac.$error.required && submitted">
+          Fecha de Nacimiento es Requerido</p>
+      </div>
       <div class="form-group">
         <label>Email</label>
         <input class="form-control" name="email" type="email" ng-model="user.email" placeholder="Email">

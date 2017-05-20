@@ -1,9 +1,64 @@
 'use strict';
-
 var config = require('../../server/config.local.js');
 var path = require('path');
+var app = require('../../server/server.js');
 
 module.exports = function(Usuario) {
+	Usuario.afterRemote('create', function(context, usuario, next) {
+		var Demandante = app.models.Demandante;
+		if (err) {
+			var err = new Error('No se ha podido crear el demandante');
+			err.statusCode = 500;
+			next(err);
+		}
+
+		var data = {
+			'email': usuario.email,
+			'nombre': usuario.nombre,
+			'telefono': usuario.telefono,
+			
+		}
+		Demandante.create(data, function(err, demandante) {
+			if (err) {
+				next(err);
+			}
+			console.log(demandante);
+			demandante.updateAttribute('usuarioId', usuario.id, function(err, demandante) {
+				if (err) {
+					var err = new Error('Error al al actualizar userid de Demandante ');
+					err.statusCode = 404;
+					next(err);
+				}
+				usuario.updateAttribute('demandanteId', demandante.id, function(err, usuario) {
+					if (err) {
+						var err = new Error('Error al al actualizar userid de Demandante ');
+						err.statusCode = 404;
+						next(err);
+					}
+					var html = '<h1>Eres Demandante ya Enorabuena ya puedes inscribirte  en nuestras ofertas</h1><hr>' +
+						'<p>Usted ' + demandante.nombre + ' con email : ' + demandante.email + '. Registrada como Demandante en la Bolsa de Trabajo' +
+						'</p> <ul>	<li>Nombre: ' + demandante.nombre +
+						'</li>	<li>Email: ' + demandante.email +
+						'</li>	<li>Telefono: ' + demandante.telefono + '</li></ul>' +
+						'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
+						'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
+
+					Usuario.app.models.Email.send({
+						to: demandante.email,
+						from: process.env.ADMIN_EMAIL,
+						subject: 'Usted ' + demandante.nombre + ' con email : ' + demandante.email + '. Registrada como Demandante en la Bolsa de Trabajo',
+						text: 'Usted ' + demandante.nombre + ' con email : ' + demandante.email + '. Registrada como Demandante en la Bolsa de Trabajo',
+						html: html
+					}, function(err, mail) {
+						if (err) throw err;
+						console.log('email sent!');
+						next();
+					});
+
+				});
+			});
+		});
+	});
 
 	Usuario.request_password_reset = function(email, cb) {
 		Usuario.resetPassword({
@@ -25,9 +80,9 @@ module.exports = function(Usuario) {
 			err.statusCode = 404;
 			return cb(err);
 		}
-	    return res.render('password-reset', {
-	      accessToken: accessToken.id
-    	});
+		return res.render('password-reset', {
+			accessToken: accessToken.id
+		});
 
 	};
 

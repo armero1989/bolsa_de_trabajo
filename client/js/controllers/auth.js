@@ -26,11 +26,12 @@ angular
     $scope.user = {
       email: '',
       password: '',
-      nombre:''
+      nombre:'',
+      telefono:''
     };
 
     $scope.register = function() {
-      AuthService.register($scope.user.email, $scope.user.password, $scope.user.nombre)
+      AuthService.register($scope.user.email, $scope.user.password, $scope.user.nombre,$scope.user.telefono)
         .then(function() {
           $state.transitionTo('login');
         });

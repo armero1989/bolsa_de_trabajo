@@ -12,6 +12,10 @@ Oferta.observe('before save', function (ctx, next) {
 				console.log(fecha);
 				ctx.instance.unsetAttribute('created_at');
 				ctx.instance.created_at=new Date();
+				ctx.instance.unsetAttribute('ofertante');
+				ctx.instance.ofertante=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
+				ctx.instance.unsetAttribute('demandante');
+				ctx.instance.demandante=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
 			} else {
 				
 			}
@@ -22,7 +26,8 @@ Oferta.observe('before save', function (ctx, next) {
 	//enviar correo electrónico al administrador cuando se cree un nueva oferta nueva
 	Oferta.afterRemote('create', function(context, oferta, next) {
 		var Empresa = app.models.Empresa;
-		var Usuario =app.models.Usuario;
+		var Demandante =app.models.Demandante;
+
 		var html = '<h1>La oferta ' + oferta.puesto + ' se ha registrado en la web</h1>' +
 			'<h2>Con las siguientes Caracteristicas</h2><hr>' +
 			'<ul>	<li>vacantes: ' + oferta.vacantes +
@@ -38,13 +43,6 @@ Oferta.observe('before save', function (ctx, next) {
 			'</li></ul>' +
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
 			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
-
-			oferta.updateAttribute('ofertante', empresa.id, function(err, oferta) {
-				if (err) {
-					var err = new Error('Error al al actualizar el ofertante en Oferta ');
-					err.statusCode = 404;
-					next(err);
-				}
 				
 				Oferta.app.models.Email.send({
 					to: config.admin.email,
@@ -57,7 +55,7 @@ Oferta.observe('before save', function (ctx, next) {
 					console.log('email sent!');
 					
 				});
-		});
+	
 	});
 
 

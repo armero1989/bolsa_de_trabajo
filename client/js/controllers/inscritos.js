@@ -17,7 +17,6 @@ angular
       $scope.submitForm = function() {
         Inscrito
           .create({
-            userId: $rootScope.currentUser.id,
             ofertaId: $scope.Oferta.id
           })
           

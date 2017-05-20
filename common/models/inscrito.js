@@ -6,6 +6,18 @@ var app = require('../../server/server.js');
 module.exports = function(Inscrito) {
 
 
+Inscrito.observe('before save', function (ctx, next) {
+		if (ctx.isNewInstance) {
+			if (ctx.instance) {
+				ctx.instance.unsetAttribute('userId');
+				ctx.instance.userId=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
+			} else {
+				
+			}
+		}
+		next();
+});
+
 	Inscrito.validatesUniquenessOf('ofertaId');
 
 	//enviar correo electrónico al administrador cuando se cree un nueva inscripcion nueva

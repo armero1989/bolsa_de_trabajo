@@ -23,12 +23,6 @@
       "type": "string",
       "required": true
     },
-    "empresa": {
-      "type": "string"
-    },
-    "particular": {
-      "type": "string"
-    },
     "provincia": {
       "type": "string",
       "required": true

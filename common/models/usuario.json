@@ -8,7 +8,20 @@
   "properties": {
     "nombre": {
       "type": "string",
-      "required": true
+      "required":true
+    },
+    "apellidos":{
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
+    "fecha_nac": {
+      "type": "date"
+    },
+    "telefono": {
+      "type": "string",
+      "required":true
     },
     "Empresa": {
       "type": "boolean"
