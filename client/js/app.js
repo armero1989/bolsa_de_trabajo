@@ -19,17 +19,20 @@ angular
        .state('creaempresa', {
         url: '/api/Empresas/',
         templateUrl: 'views/createempresa.ejs',
-        controller: 'CreateEmpresaController'
+        controller: 'CreateEmpresaController',
+        authenticate:true
       })
        .state('creaoferta', {
         url: '/api/Ofertas/',
         templateUrl: 'views/createoferta.ejs',
-        controller: 'CreateOfertaController'
+        controller: 'CreateOfertaController',
+        authenticate:true
       })
       .state('inscribirse', {
         url: '/api/inscritos/',
         templateUrl: 'views/inscrito.ejs',
-        controller: 'OneInscritoController'
+        controller: 'OneInscritoController',
+        authenticate:true
       })
       .state('login', {
         url: '/api/usuarios/login',
@@ -39,7 +42,8 @@ angular
       .state('acredita', {
         url: '/acredita',
         templateUrl: 'views/acredita.html',
-        controller: 'AuthLoginController'
+        controller: 'AuthLoginController',
+        authenticate:true
       })
       .state('logout', {
         url: '/api/usuarios/logout',
@@ -56,12 +60,28 @@ angular
       });
     $urlRouterProvider.otherwise('/api/Ofertas/Ofertas_find');
   }])
-  .run(['$rootScope', '$state', function($rootScope, $state) {
-    $rootScope.$on('$stateChangeStart', function(event, next) {
+  .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
       // redirect to login page if not logged in
-      if (next.authenticate && !$rootScope.currentUser) {
+      if (toState.authenticate && !LoopBackAuth.accessTokenId) {
         event.preventDefault(); //prevent current page from loading
+
+        // Maintain returnTo state in $rootScope that is used
+        // by authService.login to redirect to after successful login.
+        // http://www.jonahnisenson.com/angular-js-ui-router-redirect-after-login-to-requested-url/
+        $rootScope.returnTo = {
+          state: toState,
+          params: toParams
+        };
+
         $state.go('login');
       }
     });
+        // Get data from localstorage after pagerefresh
+    // and load user data into rootscope.
+    if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
+      AuthService.refresh(LoopBackAuth.accessTokenId);
+    }
   }]);
+
+

@@ -11,6 +11,7 @@ angular
             id: response.user.id,
             tokenId: response.id,
             Empresa:response.user.Empresa,
+            demandante:response.user.demandanteId,
             email: email,
             admin:response.user.admin,
             nombre:response.user.nombre
@@ -48,11 +49,25 @@ function resetear(email) {
        });
       
     }
-
+  function refresh(accessTokenId) {
+      return User
+        .getCurrent(function(userResource) {
+          $rootScope.currentUser = {
+            id: userResource.id,
+            tokenId: accessTokenId,
+            email: userResource.email,
+            Empresa:userResource.Empresa,
+            demandante:userResource.demandanteId,
+            admin:userResource.admin,
+            nombre:userResource.nombre
+          };
+        });
+    }
     return {
       login: login,
       logout: logout,
       register: register,
-      resetear:resetear
+      resetear:resetear,
+      refresh:refresh
     };
   }]);
