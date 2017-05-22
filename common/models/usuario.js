@@ -29,7 +29,7 @@ module.exports = function(Usuario) {
 					err.statusCode = 404;
 					next(err);
 				}
-				usuario.updateAttribute('demandanteId', demandante.id, function(err, usuario) {
+				usuario.updateAttribute('demandanteId', usuario.id, function(err, usuario) {
 					if (err) {
 						var err = new Error('Error al al actualizar userid de Demandante ');
 						err.statusCode = 404;

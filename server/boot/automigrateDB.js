@@ -12,6 +12,7 @@ module.exports = function(app) {
 
         var config = require('../config.local.js');
         var Usuario = app.models.Usuario;
+        var Demandante=app.models.Demandante;
         var Role = app.models.Role;
         var RoleMapping = app.models.RoleMapping;
 
@@ -22,6 +23,13 @@ module.exports = function(app) {
           if (count === 0) {
             console.log('----------------------------');
             console.log('Creacion de usuarios Pre-Establecidos');
+            Demandante.create([{
+              nombre: 'Administrador',
+              email: config.admin.email,
+              telefono:'968 17 85 00',
+              usuarioId:1
+            }], function(err, Demandantes) {
+              if (err) throw err;
             Usuario.create([{
               username: 'admin',
               apellidos: 'Plataforma',
@@ -29,7 +37,8 @@ module.exports = function(app) {
               email: config.admin.email,
               password: config.admin.password,
               telefono:'968 17 85 00',
-              admin:1
+              admin:1,
+              demandanteId:1
             }], function(err, users) {
               if (err) throw err;
 
@@ -50,7 +59,8 @@ module.exports = function(app) {
                 });
               });
             });
-          }
+          });
+        };
         });
       });
     });
