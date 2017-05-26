@@ -22,6 +22,12 @@ angular
         controller: 'CreateEmpresaController',
         authenticate:true
       })
+       .state('datos', {
+        url: '/api/Misdatos/',
+        templateUrl: 'views/datos.ejs',
+        controller: 'MyDemandanteController',
+        authenticate:true
+      })
        .state('creaoferta', {
         url: '/api/Ofertas/',
         templateUrl: 'views/createoferta.ejs',

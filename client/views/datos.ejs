@@ -1,0 +1,32 @@
+<section>
+<div class="row ">
+ <div class=" col-xs-12" >
+      <div class="table table-bordered panel panel-default text-center">
+        <div class="panel-heading" > 
+            <h3>Datos Personales del Demandante:{{Demandante.nombre}}</h3></div>
+
+
+  <ul>
+	  
+	  <li>Apellidos:  {{ Demandante.apellidos }}</li>
+	  <li>Dni :  {{ Demandante.dni }}</li>	
+	  <li>Telefono:  {{ Demandante.telefono }}</li>
+	  <li>Email :  {{ Demandante.email}}</li>
+	  <li>Fecha de Nacimiento: {{ Demandante.fecha_nac |date}}</li>
+	  <li>Sexo :  {{ Demandante.sexo }}</li>
+	  <li>Titulaciones:  {{ Demandante.titulaciones }}</li>
+	  <li>Experiencia :  {{ Demandante.experiencia }} </li>	
+	  <li>Idiomas: {{ Demandante.idiomas }}</li>
+	  <li>Conducir:   {{ Demandante.conducir }}</li>	
+	  <li>Camion: {{ Demandante.camion }}</li>
+	  <li>Eres Discapacitado: {{ Demandante.discapacitado}}</li>
+  </ul>
+  </div>
+  <div ng-show="currentUser">
+  <a href="#"  class="btn btn-success" ui-sref-active="active">Editar</a></div>
+  </div>
+
+
+</div>
+
+</section>
