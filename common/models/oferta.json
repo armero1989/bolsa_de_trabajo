@@ -69,7 +69,7 @@
     },
     "demandante": {
       "type": "hasMany",
-      "model": "Demandante",
+      "model": "Usuario",
       "foreignKey": "userId",
       "through": "Inscrito"
     }

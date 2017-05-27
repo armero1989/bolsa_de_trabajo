@@ -11,12 +11,12 @@
   },
   "validations": [],
   "relations": {
-    "Usuarios": {
+    "usuario": {
       "type": "belongsTo",
       "model": "Usuario",
       "foreignKey": "userId"
     },
-    "Oferta": {
+    "oferta": {
       "type": "belongsTo",
       "model": "Oferta",
       "foreignKey": "ofertaId"

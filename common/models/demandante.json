@@ -49,12 +49,6 @@
   },
   "validations": [],
   "relations": {
-    "ofertas": {
-      "type": "hasMany",
-      "model": "Oferta",
-      "foreignKey": "ofertaId",
-      "through": "Inscrito"
-    },
     "usuarios": {
       "type": "hasOne",
       "model": "Usuario",

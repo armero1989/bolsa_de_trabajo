@@ -49,7 +49,7 @@ Oferta.observe('before save', function (ctx, next) {
 				}, function(err, mail) {
 					if (err) throw err;
 					console.log('email sent!');
-					
+					next();
 				});
 	
 	});
