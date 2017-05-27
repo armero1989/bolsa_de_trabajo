@@ -32,11 +32,21 @@
           <li ng-show="currentUser">
             <a ui-sref="acredita"  ui-sref-active="active">Acreditacion</a>
           </li>
+          <li ng-show="currentUser.admin" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="" ui-sref-active="active">Empresa<span class="caret"></span></a>
+          <ul  ng-show="currentUser.admin"  class="dropdown-menu">
           <li ng-show="currentUser.admin">
             <a ui-sref="creaempresa"  ui-sref-active="active">Crear Empresa</a>
           </li>
+          </ul>
+          </li>
+          <li ng-show="currentUser" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="" ui-sref-active="active">Oferta<span class="caret"></span></a>
+           <ul  ng-show="currentUser"  class="dropdown-menu">
            <li ng-show="currentUser">
             <a ui-sref="creaoferta"  ui-sref-active="active">Crear Oferta</a>
+          </li>
+          </ul>
           </li>
           <li  ng-show="currentUser">
             <a ng-hide="currentUser.Empresa" ui-sref="inscribirse" ui-sref-active="active">Inscribirse en Ofertas</a>

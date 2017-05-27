@@ -14,11 +14,7 @@ Oferta.observe('before save', function (ctx, next) {
 				ctx.instance.created_at=new Date();
 				ctx.instance.unsetAttribute('ofertante');
 				ctx.instance.ofertante=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
-				ctx.instance.unsetAttribute('demandante');
-				ctx.instance.demandante=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
-			} else {
-				
-			}
+			} 
 		}
 		next();
 });
@@ -89,6 +85,44 @@ Oferta.observe('before save', function (ctx, next) {
 			},
 			http: {
 				path: '/:id/usuariosInscritos',
+				verb: 'get'
+			},
+		}
+	);
+	Oferta.usuariosInscritosDetalle = function(id, cb) {
+		var Inscrito = app.models.Inscrito;
+		var Usuario =app.models.Usuario
+		Inscrito.find({
+			ofertaId: id
+		}, function(err, inscrito) {
+			Usuario.find({
+			where: {
+				id: inscrito.userId
+			}
+		}, function(err, usuario) {
+			if (err) return cb(err);
+			return cb(null, (usuario));
+		});
+});
+
+
+	};
+
+
+	Oferta.remoteMethod(
+		'usuariosInscritosDetalle', {
+			description: 'Devuelve el número de demandantes inscritos en la oferta',
+			accepts: [{
+				arg: 'id',
+				type: 'integer',
+				required: true
+			}],
+			returns: {
+				arg: 'msg',
+				type: 'string'
+			},
+			http: {
+				path: '/:id/usuariosInscritosDetalle',
 				verb: 'get'
 			},
 		}

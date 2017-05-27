@@ -2,9 +2,12 @@ angular
   .module('app')
   .controller('AllOfertasController', ['$scope', 'Oferta', function($scope,
       Oferta) {
+    function getfullOfertas(){
     $scope.Ofertas = Oferta.find({
       
     });
+  }
+  getfullOfertas();
   }])
   
  .controller('CreateOfertaController', ['$scope', 'OfertService', '$state',function($scope,

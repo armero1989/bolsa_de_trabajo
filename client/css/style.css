@@ -130,6 +130,15 @@ body {
       border-color: transparent;
       color: #fff !important;
   }
+  .dropdown-menu{
+    background-color: #5ddf70;
+    color:#fff!important;
+    font-size: 10px;
+  }
+  .dropdown-menu:hover{
+    color: #5ddf70 !important;
+      background-color: #fff !important;
+  }
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;

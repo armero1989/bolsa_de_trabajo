@@ -72,11 +72,6 @@
       "model": "Demandante",
       "foreignKey": "userId",
       "through": "Inscrito"
-    },
-    "demandantes": {
-      "type": "belongsTo",
-      "model": "demandante",
-      "foreignKey": "demandante"
     }
   },
   "acls": [

@@ -35,7 +35,7 @@ module.exports = function(Usuario) {
 						err.statusCode = 404;
 						next(err);
 					}
-					var html = '<h1>Eres Demandante ya Enorabuena ya puedes inscribirte  en nuestras ofertas</h1><hr>' +
+					var html = '<h1>Eres Demandante ya Enhorabuena ya puedes inscribirte  en nuestras ofertas</h1><hr>' +
 						'<p>Usted ' + demandante.nombre + ' con email : ' + demandante.email + '. Registrada como Demandante en la Bolsa de Trabajo' +
 						'</p> <ul>	<li>Nombre: ' + demandante.nombre +
 						'</li>	<li>Email: ' + demandante.email +

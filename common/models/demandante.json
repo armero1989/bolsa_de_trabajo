@@ -59,11 +59,6 @@
       "type": "hasOne",
       "model": "Usuario",
       "foreignKey": ""
-    },
-    "demandantes": {
-      "type": "hasMany",
-      "model": "Oferta",
-      "foreignKey": "demandante"
     }
   },
   "acls": [
