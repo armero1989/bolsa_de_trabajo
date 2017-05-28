@@ -76,10 +76,11 @@
       "permission": "DENY"
     },
     {
-      "accessType": "*",
+      "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "Empresa",
-      "permission": "ALLOW"
+      "permission": "ALLOW",
+      "property": "create"
     },
     {
       "accessType": "*",

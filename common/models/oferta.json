@@ -62,11 +62,6 @@
   },
   "validations": [],
   "relations": {
-    "usuario":{
-      "type": "belongsTo",
-      "model": "Usuario",
-      "foreignKey": "empresaId"
-    },
     "empresa": {
       "type": "belongsTo",
       "model": "Empresa",
@@ -77,6 +72,11 @@
       "model": "Usuario",
       "foreignKey": "userId",
       "through": "Inscrito"
+    },
+    "demandante":{
+      "type": "belongsTo",
+      "model": "Demandante",
+      "foreignKey": ""
     }
   },
   "acls": [

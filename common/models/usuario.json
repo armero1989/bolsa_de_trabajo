@@ -32,11 +32,6 @@
   },
   "validations": [],
   "relations": {
-    "oferta":{
-      "type": "hasMany",
-      "model": "oferta",
-      "foreignKey": ""
-    },
     "ofertas": {
       "type": "hasMany",
       "model": "Oferta",

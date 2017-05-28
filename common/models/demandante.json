@@ -49,6 +49,11 @@
   },
   "validations": [],
   "relations": {
+     "oferta": {
+      "type": "hasMany",
+      "model": "Oferta",
+      "foreignKey": ""
+    },
     "usuarios": {
       "type": "hasOne",
       "model": "Usuario",

@@ -56,7 +56,7 @@ Inscrito.observe('before save', function (ctx, next) {
 					Usuario.app.models.Email.send({
 						to: usuario.email,
 						from: process.env.ADMIN_EMAIL,
-						subject: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '.',
+						subject: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '. De la Empresa '+oferta.empresa+'.',
 						text: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '.',
 						html: html
 					}, function(err, mail) {
