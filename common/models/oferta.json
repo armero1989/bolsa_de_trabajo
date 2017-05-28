@@ -62,12 +62,17 @@
   },
   "validations": [],
   "relations": {
-    "empresas": {
+    "usuario":{
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": "empresaId"
+    },
+    "empresa": {
       "type": "belongsTo",
       "model": "Empresa",
-      "foreignKey": "ofertante"
+      "foreignKey": ""
     },
-    "demandante": {
+    "inscrito": {
       "type": "hasMany",
       "model": "Usuario",
       "foreignKey": "userId",

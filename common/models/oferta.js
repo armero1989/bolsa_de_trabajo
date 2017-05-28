@@ -12,8 +12,8 @@ Oferta.observe('before save', function (ctx, next) {
 				console.log(fecha);
 				ctx.instance.unsetAttribute('created_at');
 				ctx.instance.created_at=new Date();
-				ctx.instance.unsetAttribute('ofertante');
-				ctx.instance.ofertante=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
+				ctx.instance.unsetAttribute('empresaId');
+				ctx.instance.empresaId=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
 			} 
 		}
 		next();

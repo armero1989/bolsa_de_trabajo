@@ -57,10 +57,10 @@
   },
   "validations": [],
   "relations": {
-    "Ofertas": {
+    "oferta": {
       "type": "hasMany",
       "model": "Oferta",
-      "foreignKey": "ofertante"
+      "foreignKey": ""
     },
     "usuarios": {
       "type": "hasOne",
@@ -76,11 +76,10 @@
       "permission": "DENY"
     },
     {
-      "accessType": "EXECUTE",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "Empresa",
-      "permission": "ALLOW",
-      "property": "create"
+      "permission": "ALLOW"
     },
     {
       "accessType": "*",
