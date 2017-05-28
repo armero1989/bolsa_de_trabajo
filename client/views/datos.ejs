@@ -1,9 +1,39 @@
 <section>
+
+<div ng-show="currentUser" ng-controller="MyEmpresaController" class="row ">
+ <div ng-show="currentUser.Empresa" class=" col-xs-12" >
+      <div class="table table-bordered panel panel-default text-center">
+        <div class="panel-heading" > 
+            <h3>Datos de Empresa:{{Empresa.nombre}}</h3></div>
+
+
+  <ul ng-show="currentUser">
+	  
+	  <li>cif:  {{ Empresa.cif }}</li>
+	  <li>Direccion :  {{ Empresa.direccion}}</li>	
+	  <li>Telefono:  {{ Empresa.telefono }}</li>
+	  <li>Email :  {{ Empresa.email}}</li>
+	  <li>Localidad: {{ Empresa.localidad}}</li>
+	  <li>Provincia :  {{ Empresa.provincia }}</li>
+	  <li>Url:  {{ Empresa.url }}</li>
+	  <li>Fax:  {{ Empresa.fax }} </li>	
+	  <li>NºEmpleados: {{ Empresa.n_empleados }}</li>
+	  <li>Sector:   {{ Empresa.idsector }}</li>	
+  </ul>
+  </div>
+  <div ng-show="currentUser">
+  <a href="#"  class="btn btn-success" ui-sref-active="active">Editar</a></div>
+  </div>
+
+
+</div>
+<br>
+<br>
 <div class="row ">
  <div class=" col-xs-12" >
       <div class="table table-bordered panel panel-default text-center">
         <div class="panel-heading" > 
-            <h3>{{Demandante.nombre}}</h3></div>
+            <h3>Datos de Demandante:{{Demandante.nombre}}</h3></div>
 
 
   <ul ng-show="currentUser">

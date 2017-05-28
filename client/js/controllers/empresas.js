@@ -27,3 +27,31 @@ angular
     };
 
  }])
+ .controller('MyEmpresaController', ['$scope', 'Empresa', '$rootScope', // comentarios del usuario logueado
+      function($scope, Empresa,$rootScope) {
+        
+        // after a refresh, the currenUser is not immediately on the scope
+        // So, we're watching it on the scope and load my reviews only then.
+      
+          $scope.Empresa = Empresa.findOne({
+            filter: {
+              where: {
+                nombre: $rootScope.currentUser.nombre
+              }
+            },
+              include: [
+              "cif",
+              "nombre",
+              "direccion",
+              "email",
+              "localidad",
+              "provincia",
+              "telefono",
+              "url",
+              "fax",
+              "n_empleados",
+              "idsector",
+              ]
+            });
+       
+}]);

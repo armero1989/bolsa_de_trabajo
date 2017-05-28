@@ -18,7 +18,6 @@ Inscrito.observe('before save', function (ctx, next) {
 		next();
 });
 
-	Inscrito.validatesUniquenessOf('ofertaId');
 
 	//enviar correo electrónico al administrador cuando se cree un nueva inscripcion nueva
 	Inscrito.afterRemote('create', function(context, inscrito, next) {
@@ -56,7 +55,7 @@ Inscrito.observe('before save', function (ctx, next) {
 					Usuario.app.models.Email.send({
 						to: usuario.email,
 						from: process.env.ADMIN_EMAIL,
-						subject: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '. De la Empresa '+oferta.empresa+'.',
+						subject: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '.',
 						text: 'Usted ' + usuario.nombre + ' se ha registrado en la oferta: ' + oferta.puesto + '.',
 						html: html
 					}, function(err, mail) {

@@ -49,7 +49,7 @@
   },
   "validations": [],
   "relations": {
-     "oferta": {
+    "oferta": {
       "type": "hasMany",
       "model": "Oferta",
       "foreignKey": ""
