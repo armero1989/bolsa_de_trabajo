@@ -11,7 +11,7 @@ module.exports = function(app) {
     //El usuario debe estar como creador de un Oferta
     var Oferta = app.models.Oferta;
     Oferta.count({
-      ofertante: userId
+      empresaId: userId
     }, function(err, count) {
       if (err) return cb(err);
       if (count > 0) {
