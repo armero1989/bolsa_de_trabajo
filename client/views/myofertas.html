@@ -1,0 +1,30 @@
+<section>
+<div class="row ">
+ <div class="col-sm-8 col-xs-12 col-md-6 col-lg-4" ng-repeat="oferta in Ofertas">
+      <div class="table table-bordered panel panel-default text-center">
+        <div class="panel-heading"> 
+            <h3>Puesto:{{oferta.puesto}}</h3></div>
+
+
+  <ul>
+	  
+	  <li>vacantes:  {{ oferta.vacantes }}</li>	
+	  <li>Descripcion:  {{ oferta.descripcion }}</li>
+	  <li>Con experiencia :  {{ oferta.experiencia }}</li>
+	  <li>En la Provincia :  {{ oferta.provincia }}</li>
+	  <li>En la Localidad :  {{ oferta.localidad }}</li>
+	  <li>Salario Ofrecido :  {{ oferta.salario_ofrecido }} €</li>	
+	  <li>Con las siguientes Condiciones: {{ oferta.condiciones }}</li>
+	  <li>Con las siguientes Otras Consideraciones:   {{ oferta.otras_consideraciones }}</li>	
+	  <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
+	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
+  </ul>
+  </div>
+  <div ng-show="currentUser">
+  
+  </div>
+
+
+</div>
+
+</section>

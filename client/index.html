@@ -44,6 +44,9 @@
           <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="" ui-sref-active="active">Oferta<span class="caret"></span></a>
            <ul  ng-show="currentUser"  class="dropdown-menu">
            <li ng-show="currentUser">
+            <a ui-sref="myoferta"  ui-sref-active="active">Mis Ofertas</a>
+          </li>
+           <li ng-show="currentUser">
             <a ui-sref="creaoferta"  ui-sref-active="active">Crear Oferta</a>
           </li>
           </ul>
