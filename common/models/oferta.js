@@ -91,44 +91,6 @@ Oferta.observe('before save', function (ctx, next) {
 			},
 		}
 	);
-	Oferta.usuariosInscritosDetalle = function(id, cb) {
-		var Inscrito = app.models.Inscrito;
-		var Usuario =app.models.Usuario
-		Inscrito.find({
-			ofertaId: id
-		}, function(err, inscrito) {
-			Usuario.find({
-			where: {
-				id: inscrito.userId
-			}
-		}, function(err, usuario) {
-			if (err) return cb(err);
-			return cb(null, (usuario));
-		});
-});
-
-
-	};
-
-
-	Oferta.remoteMethod(
-		'usuariosInscritosDetalle', {
-			description: 'Devuelve el número de demandantes inscritos en la oferta',
-			accepts: [{
-				arg: 'id',
-				type: 'integer',
-				required: true
-			}],
-			returns: {
-				arg: 'msg',
-				type: 'string'
-			},
-			http: {
-				path: '/:id/usuariosInscritosDetalle',
-				verb: 'get'
-			},
-		}
-	);
 
 
 
