@@ -135,7 +135,7 @@ body {
     color:#fff!important;
     font-size: 10px;
   }
-  .dropdown-menu:hover{
+  .dropdown-menu li:hover{
     color: #5ddf70 !important;
       background-color: #fff !important;
   }
