@@ -121,10 +121,14 @@ body {
   }
   .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
+      text-transform: uppercase;
+
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
       color: #5ddf70 !important;
       background-color: #fff !important;
+      text-transform: uppercase;
+      border-radius: 3px;
   }
   .navbar-default .navbar-toggle {
       border-color: transparent;
@@ -134,11 +138,19 @@ body {
     background-color: #5ddf70;
     color:#fff!important;
     font-size: 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
   }
   .dropdown-menu li:hover{
     color: #5ddf70 !important;
       background-color: #fff !important;
+      text-transform: uppercase;
+      border-radius: 3px;
   }
+  .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  color:#5ddf70 !important;
+  border-radius: 3px;
+}
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
