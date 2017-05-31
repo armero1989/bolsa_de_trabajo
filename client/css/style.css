@@ -148,6 +148,7 @@ body {
       border-radius: 3px;
   }
   .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: #CFFFD6 !important;
   color:#5ddf70 !important;
   border-radius: 3px;
 }
