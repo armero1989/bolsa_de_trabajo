@@ -6,12 +6,6 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-       .state('myoferta', {
-        url: '/api/Ofertas/My_Ofertas_find',
-        templateUrl: 'views/myofertas.html',
-        controller: 'MyOfertasController',
-        authenticate:true
-      })
       .state('ofertas', {
         url: '/api/Ofertas/Ofertas_find',
         templateUrl: 'views/ofertas.html',
@@ -26,12 +20,6 @@ angular
         url: '/api/Empresas/',
         templateUrl: 'views/createempresa.ejs',
         controller: 'CreateEmpresaController',
-        authenticate:true
-      })
-       .state('datos', {
-        url: '/api/Misdatos/',
-        templateUrl: 'views/datos.ejs',
-        controller: 'MyDemandanteController',
         authenticate:true
       })
        .state('creaoferta', {
