@@ -26,9 +26,6 @@ $('#menulogin').on('click',function(){
     // Load profile if it exits
     loadProfile();
 
-$('form').on('submit',function () {
-    $('.btn btn-success').hide();
-})
 
 
 });
