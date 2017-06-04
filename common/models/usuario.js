@@ -60,6 +60,31 @@ module.exports = function(Usuario) {
 		});
 	});
 
+
+Usuario.afterRemote('deleteById', function(context, usuario, next) {
+		var Empresa = app.models.Empresa;
+		var Demandante =app.models.Demandante;
+
+		var html = '<h1>Se ha borrado un Usuario en la web</h1>' +
+			
+			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
+			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
+				
+				Usuario.app.models.Email.send({
+					to: config.admin.email,
+					from: config.emailDs.transports[0].auth.user,
+					subject: 'Usuario Borrado en la Bolsa de Trabajo',
+					text: 'Usuario Borrado en la Bolsa de Trabajo',
+					html: html
+				}, function(err, mail) {
+					if (err) throw err;
+					console.log('email sent!');
+					next();
+				});
+	
+	});
+
+
 	Usuario.request_password_reset = function(email, cb) {
 		Usuario.resetPassword({
 			email: email

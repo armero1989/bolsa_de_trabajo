@@ -1,0 +1,28 @@
+<section>
+<div ng-show="currentUser.admin" class="row ">
+ <div  class="col-sm-8 col-xs-12 col-md-6 col-lg-4" ng-repeat="empresa in Empresas" >
+      <div class="table table-bordered panel panel-default text-center">
+        <div class="panel-heading" > 
+            <h3>Datos de Empresa:{{empresa.nombre}}</h3></div>
+
+
+  <ul ng-show="currentUser">
+	  
+	  <li>cif:  {{ empresa.cif }}</li>
+	  <li>Direccion :  {{ empresa.direccion}}</li>	
+	  <li>Telefono:  {{ empresa.telefono }}</li>
+	  <li>Email :  {{ empresa.email}}</li>
+	  <li>Localidad: {{ empresa.localidad}}</li>
+	  <li>Provincia :  {{ empresa.provincia }}</li>
+	  <li>Url:  {{ empresa.url }}</li>
+	  <li>Fax:  {{ empresa.fax }} </li>	
+	  <li>NºEmpleados: {{ empresa.n_empleados }}</li>
+	  <li>Sector:   {{ empresa.idsector }}</li>	
+  </ul>
+   <a ng-show="currentUser.admin" ui-sref="deleteempresa({ id: empresa.id })" class="btn btn-success">Borrar {{action}} </a>
+  </div>
+ 
+
+
+</div>
+</section>

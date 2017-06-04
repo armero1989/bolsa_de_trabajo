@@ -6,6 +6,37 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
+        .state('deleteempresa', {
+        url: '/api/Empresas/Empresas_delete/:id',
+        controller: 'DeleteEmpresaController',
+        authenticate:true
+      })
+        .state('deleteusers', {
+        url: '/api/Usuarios/Usuarios_delete/:id',
+        controller: 'DeleteUsuarioController',
+        authenticate:true
+      })
+      .state('empresas', {
+        url: '/api/Empresas/Empresas_find',
+        templateUrl: 'views/empresas.html',
+        controller: 'AllEmpresaController'
+      })
+      .state('usuarios', {
+        url: '/api/Usuario/Usuario_find',
+        templateUrl: 'views/users.html',
+        controller: 'UsuariosFindController'
+      })
+        .state('deleteoferta', {
+        url: '/api/Ofertas/MisOfertas/Ofertas_delete/:id',
+        controller: 'DeleteOfertaController',
+        authenticate:true
+      })
+       .state('mioferta', {
+        url: '/api/Ofertas/MisOfertas/Ofertas_find',
+        templateUrl: 'views/miofertas.html',
+        controller: 'MyOfertasController',
+        authenticate:true
+      })
       .state('ofertas', {
         url: '/api/Ofertas/Ofertas_find',
         templateUrl: 'views/ofertas.html',
@@ -20,6 +51,18 @@ angular
         url: '/api/Empresas/',
         templateUrl: 'views/createempresa.ejs',
         controller: 'CreateEmpresaController',
+        authenticate:true
+      })
+        .state('miempresa', {
+        url: '/api/MiEmpresa',
+        templateUrl: 'views/miEmpresa.ejs',
+        controller: 'MyEmpresaController',
+        authenticate:true
+      })
+       .state('datos', {
+        url: '/api/Misdatos',
+        templateUrl: 'views/datos.ejs',
+        controller: 'MyDemandanteController',
         authenticate:true
       })
        .state('creaoferta', {
