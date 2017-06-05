@@ -1,0 +1,103 @@
+<section>
+ <div class="container">
+        <div class="card card-container">
+
+         <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}}&nbsp;Oferta:</legend>
+ <span id="reauth-email" class="reauth-email"></span>
+      <div class="form-group">
+        <label>Puesto</label>
+       <input class="form-control"  type="text" ng-model="Oferta.puesto" placeholder="Puesto">
+        <p class="alert alert-danger" ng-show="form.puesto.$error.required && submitted">Puesto es Requerido</p>
+      </div>
+
+      <div class="form-group">
+        <label>Vacantes</label>
+        <input class="form-control" type="number" ng-model="Oferta.vacantes" placeholder="Vacantes">
+        <p class="alert alert-danger" ng-show="form.vacantes.$error.required && submitted">
+            Vacantes es Requerido</p>
+      </div>
+
+        <div class="form-group">
+        <label>Descripcion</label>
+        <input class="form-control" type="text" ng-model="Oferta.descripcion" placeholder="descripcion">
+        <p class="alert alert-danger" ng-show="form.descripcion.$error.required && submitted">
+            descripcion es Requerido</p>
+      </div>
+
+      <div class="form-group">
+        <label>Experiencia</label>
+        <input class="form-control" type="text" ng-model="Oferta.experiencia" placeholder="Experiencia">
+        <p class="alert alert-danger" ng-show="form.experiencia.$error.required && submitted">
+            Experiencia es Requerida</p>
+      </div>
+
+       <div class="form-group">
+        <label>Provincia</label>
+        <input class="form-control" type="text" ng-model="Oferta.provincia" placeholder="Provincia">
+        <p class="alert alert-danger" ng-show="form.provincia.$error.required && submitted">
+            Provincia es Requerida</p>
+      </div>
+
+      <div class="form-group">
+        <label>Localidad</label>
+        <input class="form-control" type="text" ng-model="Oferta.localidad" placeholder="Localidad">
+        <p class="alert alert-danger" ng-show="form.localidad.$error.required && submitted">
+            Localidad es Requerida</p>
+      </div>
+
+
+      <div class="form-group">
+        <label>Salario Ofrecido</label>
+        <input class="form-control" type="number" ng-model="Oferta.salario_ofrecido" placeholder="Salario Ofrecido">
+        <p class="alert alert-danger" ng-show="form.salario_ofrecido.$error.required && submitted">
+            Salario Ofrecido es Requerido</p>
+      </div>
+
+       <div class="form-group">
+        <label>Condiciones</label>
+        <input class="form-control" type="text" ng-model="Oferta.condiciones" placeholder="Condiciones">
+        <p class="alert alert-danger" ng-show="form.condiciones.$error.required && submitted">
+            Condiciones es Requerido</p>
+      </div>
+     
+
+     <div class="form-group">
+        <label>Otras Consideraciones</label>
+        <input class="form-control" type="text" ng-model="Oferta.otras_consideraciones" placeholder="Otras Consideraciones">
+        <p class="alert alert-danger" ng-show="form.otras_consideraciones.$error.required && submitted">
+           Otras Consideraciones es Requerido</p>
+      </div>
+     
+ 	<div class="form-group">
+        <label>Duracion Meses</label>
+        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" placeholder="Duracion Meses">
+        <p class="alert alert-danger" ng-show="form.duracion_meses.$error.required && submitted">
+          Duracion Meses es Requerido</p>
+      </div>
+    
+      <div class="form-group">
+        <label>Fecha de Caducidad</label>
+        <input class="form-control" type="text" ng-model="Oferta.fecha_caducidad| date:'yyyy-MM-dd'" placeholder="Formato:'YYYY-MM-DD'" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
+        <p class="alert alert-danger" ng-show="form.fecha_caducidad.$error.required && submitted">
+          Fecha de Caducidad es Requerido</p>
+      </div>
+      
+<div class="form-group">
+    <label>Oferta esta cerrada</label>
+        <select  ng-model="Oferta.cerrada" >
+        <option value="true">Si</option>
+        <option value="false">No</option>
+        </select>
+    </div>
+
+      <div class="actions">
+        <label></label>
+        <button class="btn btn-success">{{action}}&nbsp;Oferta</button>
+      </div>
+    </fieldset>
+  </form>
+ 		 </div><!-- /card-container -->
+</div><!-- /container -->
+</section>

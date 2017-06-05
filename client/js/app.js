@@ -31,6 +31,12 @@ angular
         controller: 'DeleteOfertaController',
         authenticate:true
       })
+         .state('updateoferta', {
+        url: '/api/Usuarios/Usuarios_update/:id',
+        templateUrl: 'views/updateoferta.ejs',
+        controller: 'MyOfertasUpdateController',
+        authenticate:true
+      })
        .state('mioferta', {
         url: '/api/Ofertas/MisOfertas/Ofertas_find',
         templateUrl: 'views/miofertas.html',
