@@ -119,3 +119,35 @@ angular
       };
     }
   ])
+  .controller('FindOfertaController', ['$scope', 'Oferta', function($scope,
+    Oferta) {
+   $scope.busqueda={
+    puesto:''
+   }
+   
+  }])
+.controller('ResulOfertaController', ['$scope', 'Oferta', '$state',
+      '$stateParams', function($scope, Oferta, $state, $stateParams) {
+    $scope.Ofertas = Oferta.find({
+      filter: {
+        where: {
+          puesto: $stateParams.puesto
+        }
+      },
+      include: [
+        "puesto",
+        "vacantes",
+        "descripcion",
+        "experiencia",
+        "provincia",
+        "localidad",
+        "salario_ofrecido",
+        "condiciones",
+        "otras_consideraciones",
+        "duracion_meses",
+        "fecha_caducidad",
+        "cerrada"
+      ]
+    });
+
+  }])

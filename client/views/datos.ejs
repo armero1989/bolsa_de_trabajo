@@ -7,12 +7,10 @@
 
 
   <ul ng-show="currentUser">
-	  <!--
 	  <li ng-hide="currentUser.Empresa">Apellidos:  {{ Demandante.apellidos }}</li>
-	  <li ng-hide="currentUser.Empresa">Dni :  {{ Demandante.dni }}</li>-->	
+	  <li ng-hide="currentUser.Empresa">Dni :  {{ Demandante.dni }}</li>
 	  <li>Telefono:  {{ Demandante.telefono }}</li>
 	  <li>Email :  {{ Demandante.email}}</li>
-	 <!--
 	  <li ng-hide="currentUser.Empresa">Fecha de Nacimiento: {{ Demandante.fecha_nac |date}}</li>
 	  <li ng-hide="currentUser.Empresa">Sexo :  {{ Demandante.sexo }}</li>
 	  <li ng-hide="currentUser.Empresa">Titulaciones:  {{ Demandante.titulaciones }}</li>
@@ -21,10 +19,10 @@
 	  <li ng-hide="currentUser.Empresa">Conducir:   {{ Demandante.conducir }}</li>	
 	  <li ng-hide="currentUser.Empresa">Camion: {{ Demandante.camion }}</li>
 	  <li ng-hide="currentUser.Empresa">Eres Discapacitado: {{ Demandante.discapacitado}}</li>
-	  <div>-->
+	 <a   ng-show="currentUser" ui-sref="updatedatos({ id: Demandante.id })" class="btn btn-success">Actualizar {{action}} </a>
   </ul>
   </div>
 
 </div>
-
+</div>
 </section>

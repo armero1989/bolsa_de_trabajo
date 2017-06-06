@@ -23,7 +23,7 @@ angular
             $scope.returnTo.params = null;
             return;
           }
-          $state.go('ofertas');
+          $state.go('buscar');
         });
     };
   }])
@@ -31,7 +31,7 @@ angular
       function($scope, AuthService, $state) {
     AuthService.logout()
       .then(function() {
-        $state.go('ofertas');
+        $state.go('buscar');
       });
   }])
   .controller('SignUpController', ['$scope', 'AuthService', '$state',

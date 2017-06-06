@@ -6,6 +6,16 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
+       .state('buscar', {
+        url: '/api/Ofertas/buscador',
+        templateUrl: 'views/buscador.ejs',
+        controller: 'FindOfertaController'
+      })
+        .state('resul', {
+        url: '/api/Ofertas/Ofertas_find/:puesto',
+        templateUrl: 'views/ofertas.html',
+        controller: 'ResulOfertaController'
+      })
         .state('deleteempresa', {
         url: '/api/Empresas/Empresas_delete/:id',
         controller: 'DeleteEmpresaController',
@@ -31,8 +41,20 @@ angular
         controller: 'DeleteOfertaController',
         authenticate:true
       })
+         .state('updatedatos', {
+        url: '/api/Misdatos/:id',
+        templateUrl: 'views/updatedemandante.ejs',
+        controller: 'MyDemandantesUpdateController',
+        authenticate:true
+      })
+      .state('updateempresa', {
+        url: '/api/Ofertas/MiEmpresa/Empresas_update/:id',
+        templateUrl: 'views/updateempresa.ejs',
+        controller: 'MyEmpresasUpdateController',
+        authenticate:true
+      })
          .state('updateoferta', {
-        url: '/api/Usuarios/Usuarios_update/:id',
+        url: '/api/Ofertas/MisOfertas/Ofertas_update/:id',
         templateUrl: 'views/updateoferta.ejs',
         controller: 'MyOfertasUpdateController',
         authenticate:true
@@ -107,7 +129,7 @@ angular
         url: '/sign-up/success',
         templateUrl: 'views/sign-up-success.html'
       });
-    $urlRouterProvider.otherwise('/api/Ofertas/Ofertas_find');
+    $urlRouterProvider.otherwise('/api/Ofertas/buscador');
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {

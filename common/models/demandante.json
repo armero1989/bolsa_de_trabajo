@@ -3,6 +3,7 @@
   "plural": "Demandantes",
   "base": "PersistedModel",
   "idInjection": true,
+  "forceId": false,
   "options": {
     "validateUpsert": true
   },
@@ -38,13 +39,13 @@
       "type": "string"
     },
     "conducir": {
-      "type": "boolean"
+      "type": "string"
     },
     "camion": {
-      "type": "boolean"
+      "type": "string"
     },
     "discapacitado": {
-      "type": "boolean"
+      "type": "string"
     }
   },
   "validations": [],

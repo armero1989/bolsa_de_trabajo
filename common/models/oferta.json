@@ -57,7 +57,7 @@
       "required": true
     },
     "cerrada": {
-      "type": "boolean",
+      "type": "string",
       "required": false
     }
   },

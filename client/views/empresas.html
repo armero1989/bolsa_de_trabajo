@@ -19,6 +19,7 @@
 	  <li>NºEmpleados: {{ empresa.n_empleados }}</li>
 	  <li>Sector:   {{ empresa.idsector }}</li>	
   </ul>
+   <a   ng-show="currentUser" ui-sref="updateempresa({ id: empresa.id })" class="btn btn-success">Actualizar {{action}} </a>
    <a ng-show="currentUser.admin" ui-sref="deleteempresa({ id: empresa.id })" class="btn btn-success">Borrar {{action}} </a>
   </div>
  

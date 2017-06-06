@@ -40,6 +40,10 @@ module.exports = function(Usuario) {
 						'</p> <ul>	<li>Nombre: ' + demandante.nombre +
 						'</li>	<li>Email: ' + demandante.email +
 						'</li>	<li>Telefono: ' + demandante.telefono + '</li></ul>' +
+						'<p>Usted ' + usuario.nombre + ' con email : ' + usuario.email + '. Registrada como Usuario en la Bolsa de Trabajo' +
+						'</p> <ul>	<li>Nombre: ' + usuario.nombre +
+						'</li>	<li>Email: ' + usuario.email +
+						'</li>	<li>Telefono: ' + usuario.telefono + '</li></ul>' +
 						'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
 						'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
 

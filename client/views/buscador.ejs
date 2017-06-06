@@ -1,0 +1,17 @@
+<section>
+<div class="jumbotron text-center">
+  <h1>¿Buscas Trabajo?</h1> 
+  <p>Aqui encontraras el trabajo que buscas.</p> 
+
+    <div class="input-group">
+      <input class="form-control" size="50" type="text" ng-model="busqueda.puesto" placeholder="Puesto">
+        
+      <div class="input-group-btn">
+        <button ui-sref="resul({puesto:busqueda.puesto})" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+      <p class="alert alert-danger" ng-show="form.puesto.$error.required && submitted">Puesto es Requerido</p>
+    </div>
+
+   </div>
+ 
+  </section>

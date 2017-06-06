@@ -1,5 +1,5 @@
 <section>
-<div ng-show="currentUser.admin" class="row ">
+<div class="row ">
  <div ng-show="currentUser.Empresa" class=" col-xs-12" >
       <div class="table table-bordered panel panel-default text-center">
         <div class="panel-heading" > 
@@ -19,7 +19,7 @@
 	  <li>NºEmpleados: {{ Empresa.n_empleados }}</li>
 	  <li>Sector:   {{ Empresa.idsector }}</li>	
   </ul>
-
+<a   ng-show="currentUser" ui-sref="updateempresa({ id: Empresa.id })" class="btn btn-success">Actualizar {{action}} </a>
   </div>
  
 </div>

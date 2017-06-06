@@ -35,6 +35,7 @@ angular
  }])
  .controller('MyEmpresaController', ['$scope', 'Empresa', 
       function($scope, Empresa) {
+        $scope.action='Mi Empresa';
          $scope.$watch('currentUser.nombre', function(value) {
           if (!value) {
             return;
@@ -74,3 +75,42 @@ angular
         $state.go('empresas');
       });
   }])
+ .controller('MyEmpresasUpdateController', ['$scope', '$q', 'Empresa',
+    '$stateParams', '$state',
+    function($scope, $q, Empresa,
+      $stateParams, $state) {
+
+      $scope.action = 'Actualizar';
+      $scope.Empresa = {};
+      $q
+        .all([
+          Empresa.findById({
+            id: $stateParams.id
+          }).$promise
+        ])
+        .then(function(data) {
+
+          var Empresas = $scope.Empresa = data[0];
+        })
+
+      $scope.submitForm = function() {
+        $scope.Empresa.id = parseInt($scope.Empresa.id);
+        $scope.Empresa.cif = $scope.Empresa.cif;
+        $scope.Empresa.nombre = $scope.Empresa.nombre;
+        $scope.Empresa.direccion = $scope.Empresa.direccion;
+        $scope.Empresa.email = $scope.Empresa.email;
+        $scope.Empresa.localidad = $scope.Empresa.localidad;
+        $scope.Empresa.provincia = $scope.Empresa.provincia;
+        $scope.Empresa.telefono = $scope.Empresa.telefono;
+        $scope.Empresa.url = $scope.Empresa.url;
+        $scope.Empresa.fax = $scope.Empresa.fax;
+        $scope.Empresa.n_empleados = $scope.Empresa.n_empleados;
+        $scope.Empresa.idsector = $scope.Empresa.idsector;
+        $scope.Empresa
+          .$save()
+          .then(function(Empresa) {
+            $state.go('miempresa');
+          });
+      };
+    }
+  ])
