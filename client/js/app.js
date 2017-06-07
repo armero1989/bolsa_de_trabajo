@@ -99,6 +99,12 @@ angular
         controller: 'CreateOfertaController',
         authenticate:true
       })
+       .state('inscritos', {
+        url: '/api/verinscritos/:id',
+        templateUrl: 'views/insofert.html',
+        controller: 'OfertaInscritoController',
+        authenticate:true
+      })
       .state('inscribirse', {
         url: '/api/inscritos/',
         templateUrl: 'views/inscrito.ejs',

@@ -119,6 +119,34 @@ angular
       };
     }
   ])
+   .controller('OfertaInscritoController', ['$scope', 'Oferta', '$state',
+      '$stateParams', function($scope, Oferta, $state, $stateParams) {
+  $scope.Oferta = Oferta.find({
+      filter: {
+        where: {
+          id: $stateParams.id
+        }
+      },
+      include: [
+        "puesto",
+        "vacantes",
+        "descripcion",
+        "experiencia",
+        "provincia",
+        "localidad",
+        "salario_ofrecido",
+        "condiciones",
+        "otras_consideraciones",
+        "duracion_meses",
+        "fecha_caducidad",
+        "cerrada"
+      ]
+    });
+  $scope.inscritos=Oferta.usuariosInscritos({
+    id:$stateParams.id
+  });
+   
+  }])
   .controller('FindOfertaController', ['$scope', 'Oferta', function($scope,
     Oferta) {
    $scope.busqueda={

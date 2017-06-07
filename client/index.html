@@ -102,7 +102,7 @@
 <div class="container">    
   
 </div><br><br>
- <!-- Add Google Maps -->
+
 <div id="googleMap" style="height:400px;width:100%;"></div>
 <script>
 function myMap() {
@@ -114,17 +114,19 @@ marker.setMap(map);
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7SZlFSHFsQwdK2ndK3eiZ7VzTMKBtq4U&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+
 </div>
 
 <footer class="container-fluid text-center">
+    <div ng-controller="UsuarioAdminController">
+    <a href="mailto:{{Usuarios.email}}?subject=Quisiera%20Registrar%20mi%20Empresa%20en%20web" class="btn btn-success">Registrar Empresa</a></div><br>
+    
     <a ui-sref="sign-up" ui-sref-active="active" class="btn btn-success">Registrate</a>
     <a ui-sref="login" ui-sref-active="active" class="btn btn-success">Logueate</a>
     <br>
     <br>
+    <div ng-controller="UsuarioAdminController">
+    <a href="mailto:{{Usuarios.email}}?subject=Contactar%20con%20el%20Administrdor" class="btn btn-success">Contactar con Bolsa de Empleo</a></div>
     <br>
 <p>© 2017 Bolsa de Empleo</p>  
 </footer>

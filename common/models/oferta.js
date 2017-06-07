@@ -103,7 +103,7 @@ Oferta.afterRemote('deleteById', function(context, oferta, next) {
 				required: true
 			}],
 			returns: {
-				arg: 'count',
+				arg: 'Demandantes',
 				type: 'number'
 			},
 			http: {

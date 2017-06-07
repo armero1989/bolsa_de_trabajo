@@ -19,6 +19,10 @@
 	  <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
 	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
   </ul>
+
+  <a   ng-show="currentUser" ui-sref="inscritos({ id: oferta.id })" class="btn btn-success">Mirar Inscritos en {{action}} </a>
+  <div class="clearfix"></div>
+  <br>
   <a   ng-show="currentUser" ui-sref="updateoferta({ id: oferta.id })" class="btn btn-success">Actualizar {{action}} </a>
    <a   ng-show="currentUser" ui-sref="deleteoferta({ id: oferta.id })" class="btn btn-success">Borrar {{action}} </a>
    
