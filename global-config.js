@@ -11,8 +11,8 @@
 var url = require('url');
 
 var conf = {
-	hostname: 'localhost',
-	port: 3000,
+	hostname: process.env.HOST || 'localhost',
+	port: process.env.HOSTPORT ||3000,
 	restApiRoot: '/api', // The path where to mount the REST API app
 	legacyExplorer: false
 };
