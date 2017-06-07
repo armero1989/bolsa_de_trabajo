@@ -26,7 +26,7 @@ module.exports = function(app) {
             Demandante.create([{
               nombre: 'Administrador',
               email: config.admin.email,
-              telefono:'968 17 85 00',
+              telefono:'34666666666',
               usuarioId:1
             }], function(err, Demandantes) {
               if (err) throw err;

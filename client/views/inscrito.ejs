@@ -1,13 +1,13 @@
 <section>
-  
+ <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} Inscribirse</legend> 
 
     <div class="row ">
  <div class="col-sm-8 col-xs-12 col-md-6 col-lg-4" ng-repeat="oferta in Ofertas">
  <div class="table table-bordered panel panel-default text-center">
         
- <form name="form" ng-submit="submitForm()">
-    <fieldset>
-      <legend>{{action}} Inscribirse</legend>
+ 
       <input  class="form-group" type="radio"  ng-model="Oferta.id" value="{{oferta.id}}">
       <div class="panel-heading"> 
             <h3>Puesto:{{oferta.puesto}}</h3></div>
@@ -26,13 +26,13 @@
     <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
   </ul>
   </li>
-    <button class="btn btn-success">{{action}} Inscripcion</button>
-     </fieldset>
-  </form>
+   
       </div>
 </div>
 </div>
-
+ <button class="btn btn-success">{{action}} Inscripcion</button>
+     </fieldset>
+  </form>
 
       
    
