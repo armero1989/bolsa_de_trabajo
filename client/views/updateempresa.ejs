@@ -8,7 +8,7 @@
  <span id="reauth-email" class="reauth-email"></span>
  	 <div class="form-group">
         <label>CIF de la Empresa</label>
-       <input class="form-control"  type="text" ng-model="Empresa.cif" placeholder="CIF">
+       <input class="form-control"  type="text" ng-model="Empresa.cif" placeholder="Forma:'X1234567X'o'X12345678'" pattern="[A-Za-z]{1}[0-9]{7}([0-9]{1}||[a-zA-Z]{1})" maxlength="9">
         <p class="alert alert-danger" ng-show="form.cif.$error.required && submitted">CIF es Requerido</p>
       </div>
 	<div class="form-group">
@@ -53,7 +53,7 @@
       </div>
       <div class="form-group">
         <label>Numero de Empleados de la Empresa</label>
-       <input class="form-control"  type="number" ng-model="Empresa.n_empleados" placeholder="Numero de Empleados de la Empresa">
+       <input class="form-control"  type="number" ng-model="Empresa.n_empleados" min="0" placeholder="Numero de Empleados de la Empresa">
         <p class="alert alert-danger" ng-show="form.n_empleados.$error.required && submitted">Numero de Empleados es Requerido</p>
       </div>
       <div class="form-group">

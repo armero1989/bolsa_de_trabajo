@@ -14,7 +14,7 @@
 
       <div class="form-group">
         <label>Vacantes</label>
-        <input class="form-control" type="number" ng-model="Oferta.vacantes" placeholder="Vacantes">
+        <input class="form-control" type="number" min="0" ng-model="Oferta.vacantes" placeholder="Vacantes">
         <p class="alert alert-danger" ng-show="form.vacantes.$error.required && submitted">
             Vacantes es Requerido</p>
       </div>
@@ -50,7 +50,7 @@
 
       <div class="form-group">
         <label>Salario Ofrecido</label>
-        <input class="form-control" type="number" ng-model="Oferta.salario_ofrecido" placeholder="Salario Ofrecido">
+        <input class="form-control" type="number" min="0" ng-model="Oferta.salario_ofrecido" placeholder="Salario Ofrecido">
         <p class="alert alert-danger" ng-show="form.salario_ofrecido.$error.required && submitted">
             Salario Ofrecido es Requerido</p>
       </div>
@@ -72,7 +72,7 @@
      
  	<div class="form-group">
         <label>Duracion Meses</label>
-        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" placeholder="Duracion Meses">
+        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" min="0" max="12" placeholder="Duracion Meses">
         <p class="alert alert-danger" ng-show="form.duracion_meses.$error.required && submitted">
           Duracion Meses es Requerido</p>
       </div>
@@ -83,7 +83,22 @@
         <p class="alert alert-danger" ng-show="form.fecha_caducidad.$error.required && submitted">
           Fecha de Caducidad es Requerido</p>
       </div>
-      
+      <div class="form-group">
+        <label>Sector</label>
+       <p >
+       <input  type="radio" name="sector" ng-model="Oferta.idsector" value="Sector Primario">
+       <span>Sector Primario</span>
+       </p>
+      <p >
+       <input   type="radio" name="sector" ng-model="Oferta.idsector" value="Sector Secundario">
+       <span>Sector Secundario</span>
+       </p>
+       <p >
+       <input  type="radio" name="sector" ng-model="Oferta.idsector" value="Sector Servicios">
+       <span>Sector Servicios</span>
+       </p>
+  <p class="alert alert-danger" ng-show="form.idsector.$error.required && submitted">Sector es Requerido
+      </div>
 <div class="form-group">
     <label>Oferta esta cerrada</label>
         <select  ng-model="Oferta.cerrada" >

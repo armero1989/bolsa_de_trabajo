@@ -26,6 +26,7 @@ angular
       otras_consideraciones: '',
       duracion_meses: '',
       fecha_caducidad: '',
+      idsector:'',
       cerrada: ''
     }
 
@@ -33,7 +34,7 @@ angular
       OfertService.create($scope.Oferta.puesto, $scope.Oferta.vacantes, $scope.Oferta.descripcion, $scope.Oferta.experiencia, $scope.Oferta.provincia,
           $scope.Oferta.localidad, $scope.Oferta.salario_ofrecido,
           $scope.Oferta.condiciones, $scope.Oferta.otras_consideraciones, $scope.Oferta.duracion_meses,
-          $scope.Oferta.fecha_caducidad, $scope.Oferta.cerrada)
+          $scope.Oferta.fecha_caducidad,$scope.Oferta.idsector, $scope.Oferta.cerrada)
         .then(function() {});
     };
 
@@ -65,6 +66,7 @@ angular
         "otras_consideraciones",
         "duracion_meses",
         "fecha_caducidad",
+        "idsector",
         "cerrada"
       ]
     });
@@ -109,6 +111,7 @@ angular
         $scope.Oferta.condiciones = $scope.Oferta.condiciones;
         $scope.Oferta.otras_consideraciones = $scope.Oferta.otras_consideraciones;
         $scope.Oferta.duracion_meses = $scope.Oferta.duracion_meses;
+        $scope.Oferta.idsector = $scope.Oferta.idsector;
         $scope.Oferta.fecha_caducidad = $scope.Oferta.fecha_caducidad;
         $scope.Oferta.cerrada = $scope.Oferta.cerrada;
         $scope.Oferta
@@ -139,6 +142,7 @@ angular
         "otras_consideraciones",
         "duracion_meses",
         "fecha_caducidad",
+        "idsector",
         "cerrada"
       ]
     });
@@ -174,6 +178,7 @@ angular
         "otras_consideraciones",
         "duracion_meses",
         "fecha_caducidad",
+        "idsector",
         "cerrada"
       ]
     });

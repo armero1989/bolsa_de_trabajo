@@ -43,7 +43,7 @@
           <li>
             <a ui-sref="ofertas" ui-sref-active="active">Todas las ofertas</a>
           </li>
-          <li ng-show="currentUser">
+          <li ng-show="currentUser.admin">
             <a ui-sref="acredita"  ui-sref-active="active">Acreditacion</a>
           </li>
           <li ng-show="currentUser.Empresa" class="dropdown">
@@ -129,6 +129,7 @@ marker.setMap(map);
     <a href="tel:{{Usuarios.telefono}}" class="btn btn-success">Contactar con Bolsa de Empleo</a></div>
     <br>
 <p>© 2017 Bolsa de Empleo</p>  
+<p><span id="fecha"></span>&nbsp;,&nbsp;<span id="reloj"></span></p>
 </footer>
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-resource.js"></script>
@@ -144,6 +145,8 @@ marker.setMap(map);
     <script src="js/services/empresas.js"></script>
     <script src="js/services/auth.js"></script>
     <script src="js/services/ofertas.js"></script>
-    <script src="js/desarrollojquery.js"</script>
+    <script src="js/desarrollojquery.js"></script>
+    <script src="js/reloj.js"></script>
+    <script src="js/fecha.js"></script>
   </body>
 </html>

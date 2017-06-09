@@ -4,7 +4,7 @@ angular
     $rootScope) {
 
     function create(puesto, vacantes, descripcion, experiencia, provincia, localidad,
-      salario_ofrecido, condiciones, otras_consideraciones, duracion_meses, fecha_caducidad, cerrada) {
+      salario_ofrecido, condiciones, otras_consideraciones, duracion_meses, fecha_caducidad, sector,cerrada) {
       return Oferta
         .create({
           puesto: puesto,
@@ -18,6 +18,7 @@ angular
           otras_consideraciones: otras_consideraciones,
           duracion_meses: duracion_meses,
           fecha_caducidad: fecha_caducidad,
+          idsector:sector,
           cerrada: cerrada
         })
         .$promise;

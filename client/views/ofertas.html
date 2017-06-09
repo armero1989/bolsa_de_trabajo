@@ -17,6 +17,7 @@
 	  <li>Con las siguientes Condiciones: {{ oferta.condiciones }}</li>
 	  <li>Con las siguientes Otras Consideraciones:   {{ oferta.otras_consideraciones }}</li>	
 	  <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
+	  <li>Sector: {{ oferta.idsector }}</li>
 	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
 	  <div ng-hide="currentUser.Empresa">
   <a ng-show="currentUser" ui-sref="inscribirse"  class="btn btn-success" ui-sref-active="active">Inscribirse</a>

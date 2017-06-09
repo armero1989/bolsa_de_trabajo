@@ -37,6 +37,7 @@ Oferta.observe('before save', function (ctx, next) {
 			'</li>	<li>Con las siguientes Condiciones:' + oferta.condiciones +
 			'</li>	<li>Con las siguientes Otras Consideraciones:' + oferta.otras_consideraciones +
 			'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +
+			'</li>	<li>Sector:' + oferta.idsector +
 			'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
 			'</li></ul>' +
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +

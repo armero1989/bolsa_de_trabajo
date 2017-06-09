@@ -46,6 +46,7 @@ Inscrito.observe('before save', function (ctx, next) {
 						'</li>	<li>Con las siguientes condiciones:' + oferta.condiciones +
 						'</li>	<li>Con las siguientes Otras Consideraciones:' + oferta.otras_consideraciones +
 						'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +
+						'</li>	<li>Sector:' + oferta.idsector +
 						'</li>	<li>Oferta valida hasta:' + oferta.fecha_caducidad +
 
 						'</li></ul>' +

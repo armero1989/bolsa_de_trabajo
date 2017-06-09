@@ -52,6 +52,10 @@
       "type": "date",
       "required": true
     },
+    "idsector": {
+      "type": "string",
+      "required": false
+    },
     "fecha_caducidad": {
       "type": "date",
       "required": true
