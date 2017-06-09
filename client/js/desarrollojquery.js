@@ -35,7 +35,6 @@ function getLocalProfile(callback){
 
 function loadProfile() {
     if(!supportsHTML5Storage()) { return false; }
-    /
     getLocalProfile(function(profileImgSrc, profileName, profileReAuthEmail) {
         $("#profile-img").attr("src",profileImgSrc);
         $("#profile-name").html(profileName);
