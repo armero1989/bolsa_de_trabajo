@@ -1,4 +1,3 @@
-var correo=process.env.ADMIN_EMAIL;
 $(document).ready(function(){
 	$('#about').addClass('visible');
 $('#menulogin').on('click',function(){
