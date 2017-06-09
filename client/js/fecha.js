@@ -12,6 +12,6 @@ if(dia<10){
 }
 var mes=fechaa.getMonth();
 var ano= fechaa.getFullYear();
-document.getElementById("fecha").innerHTML=" A "+dias[diasemana]+" , "+dia+" de "+meses[mes]+" de "+ano;
+document.getElementById("fecha").innerHTML=""+dias[diasemana]+" , "+dia+" de "+meses[mes]+" de "+ano;
 }
 window.setInterval(fecha,1);
