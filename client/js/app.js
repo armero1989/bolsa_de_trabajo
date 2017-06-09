@@ -11,6 +11,16 @@ angular
         templateUrl: 'views/buscador.ejs',
         controller: 'FindOfertaController'
       })
+        .state('reset2', {
+        url: '/api/Usuario/setPassword/:email',
+        templateUrl: 'views/password-reset.ejs',
+        controller: 'AuthReset2Controller'
+      })
+        .state('reset1', {
+        url: '/api/Usuario/reset_request',
+        templateUrl: 'views/password-reset-email.ejs',
+        controller: 'AuthResetController'
+      })
         .state('resul', {
         url: '/api/Ofertas/Ofertas_find/:puesto',
         templateUrl: 'views/ofertas.html',
@@ -139,13 +149,11 @@ angular
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-      // redirect to login page if not logged in
-      if (toState.authenticate && !LoopBackAuth.accessTokenId) {
-        event.preventDefault(); //prevent current page from loading
 
-        // Maintain returnTo state in $rootScope that is used
-        // by authService.login to redirect to after successful login.
-        // http://www.jonahnisenson.com/angular-js-ui-router-redirect-after-login-to-requested-url/
+      if (toState.authenticate && !LoopBackAuth.accessTokenId) {
+        event.preventDefault(); 
+
+        
         $rootScope.returnTo = {
           state: toState,
           params: toParams
@@ -154,8 +162,7 @@ angular
         $state.go('login');
       }
     });
-        // Get data from localstorage after pagerefresh
-    // and load user data into rootscope.
+       
     if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
       AuthService.refresh(LoopBackAuth.accessTokenId);
     }

@@ -59,7 +59,23 @@ angular
     $scope.resetear = function() {
       AuthService.resetear($scope.user.email)
         .then(function() {
-           $state.includes("access_token", {access_token:access_token});
+           
         });
     };
   }])
+ .controller('AuthReset2Controller', ['$scope', 'AuthService', '$state','$stateParams',
+      function($scope, AuthService, $state, $stateParams) {
+      
+      $scope.email=$stateParams.email;
+    $scope.user = {
+     newPassword:''
+    };
+
+    $scope.resetear = function() {
+      AuthService.resetear2($scope.user.newPassword,$scope.email)
+        .then(function() {
+          $state.go('login');
+        });
+    };
+  }])
+

@@ -4,7 +4,7 @@ var path = require('path');
 var app = require('../../server/server.js');
 module.exports = function(Demandante) {
 
-
+//borrar demandante
 
 Demandante.afterRemote('deleteById', function(context, demandante, next) {
 		var Empresa = app.models.Empresa;

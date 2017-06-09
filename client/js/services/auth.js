@@ -49,6 +49,16 @@ function resetear(email) {
        });
       
     }
+
+    function resetear2(password,email) {
+ return User
+.reset_password_post({newPassword:password},{email: email})
+ .$promise
+        .then(function() {
+         $rootScope.currentUser = null;
+       });   
+      
+    }
   function refresh(accessTokenId) {
       return User
         .getCurrent(function(userResource) {
@@ -68,6 +78,7 @@ function resetear(email) {
       logout: logout,
       register: register,
       resetear:resetear,
+      resetear2:resetear2,
       refresh:refresh
     };
   }]);

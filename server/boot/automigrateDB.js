@@ -42,14 +42,14 @@ module.exports = function(app) {
             }], function(err, users) {
               if (err) throw err;
 
-              // Create the admin role
+              // Crear el admin rol
               Role.create({
                 name: 'admin'
               }, function(err, role) {
                 if (err) throw err;
                 console.log(role);
 
-                // Make Bob an admin
+                
                 role.principals.create({
                   principalType: RoleMapping.USER,
                   principalId: users[0].id

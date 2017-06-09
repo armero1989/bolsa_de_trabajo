@@ -67,6 +67,12 @@
     "principalId": "$everyone",
     "permission": "ALLOW",
     "property": "reset_password_get"
+  },{
+    "accessType": "EXECUTE",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW",
+    "property": "setPassword"
   }, {
     "accessType": "EXECUTE",
     "principalType": "ROLE",

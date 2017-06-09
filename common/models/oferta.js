@@ -4,7 +4,7 @@ var path = require('path');
 var app = require('../../server/server.js');
 
 module.exports = function(Oferta) {
-
+//hook
 Oferta.observe('before save', function (ctx, next) {
 		if (ctx.isNewInstance) {
 			if (ctx.instance) {
@@ -55,7 +55,7 @@ Oferta.observe('before save', function (ctx, next) {
 				});
 	
 	});
-
+//borrado oferta
 Oferta.afterRemote('deleteById', function(context, oferta, next) {
 		var Empresa = app.models.Empresa;
 		var Demandante =app.models.Demandante;
@@ -79,6 +79,7 @@ Oferta.afterRemote('deleteById', function(context, oferta, next) {
 	
 	});
 
+//Inscritos en...
 	Oferta.usuariosInscritos = function(id, cb) {
 		var Inscrito = app.models.Inscrito;
 

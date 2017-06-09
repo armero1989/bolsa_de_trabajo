@@ -8,11 +8,11 @@ var bodyParser = require('body-parser');
 
 var app = module.exports = loopback();
 
-// configure view handler
+// configurar view por defecto
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../client/views'));
 
-// configure body parser
+// configurar body parser
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -21,7 +21,7 @@ app.use(loopback.token());
 
 app.start = function() {
    app.emit('started');
-  // start the web server
+  // start el web server
   return app.listen(function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
@@ -35,17 +35,11 @@ app.start = function() {
     }
   });
 };
-/*
-app.use('/express-status', function(req, res, next) {
-  res.json({ running: true });
-});*/
 
-// Bootstrap the application, configure models, datasources and middleware.
-// Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
   if (err) throw err;
 
-  // start the server if `$ node server.js`
+
   if (require.main === module)
     app.start();
 });

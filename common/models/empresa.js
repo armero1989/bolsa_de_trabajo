@@ -4,7 +4,7 @@ var path = require('path');
 var app = require('../../server/server.js');
 
 module.exports = function(Empresa) {
-
+//crear empresa
 	Empresa.afterRemote('create', function(context, empresa, next) {
 		var Usuario = app.models.Usuario;
 		var Demandante = app.models.Demandante;
@@ -84,7 +84,7 @@ module.exports = function(Empresa) {
 		});
 	});
 
-
+//borrar empresa
 Empresa.afterRemote('deleteById', function(context, empresa, next) {
 		var Empresa = app.models.Empresa;
 		var Demandante =app.models.Demandante;

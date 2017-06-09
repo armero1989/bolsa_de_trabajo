@@ -4,6 +4,7 @@ var path = require('path');
 var app = require('../../server/server.js');
 
 module.exports = function(Usuario) {
+	//Creacion de usuario
 	Usuario.afterRemote('create', function(context, usuario, next) {
 		var Demandante = app.models.Demandante;
 		if (err) {
@@ -63,7 +64,7 @@ module.exports = function(Usuario) {
 			});
 		});
 	});
-
+//borrado de Usuario
 
 Usuario.afterRemote('deleteById', function(context, usuario, next) {
 		var Empresa = app.models.Empresa;
@@ -87,7 +88,7 @@ Usuario.afterRemote('deleteById', function(context, usuario, next) {
 				});
 	
 	});
-
+//reseteo
 
 	Usuario.request_password_reset = function(email, cb) {
 		Usuario.resetPassword({
@@ -103,53 +104,37 @@ Usuario.afterRemote('deleteById', function(context, usuario, next) {
 		});
 	};
 
-	Usuario.reset_password_get = function(accessToken, res, cb) {
-		if (!accessToken) {
-			var err = new Error('No existe el usuario');
-			err.statusCode = 404;
-			return cb(err);
-		}
-		return res.render('password-reset', {
-			accessToken: accessToken.id
-		});
-
-	};
-
-	Usuario.reset_password_post = function(passwords, accessToken, cb) {
-		if (!accessToken) {
+//cambio de Contraseña
+	Usuario.reset_password_post = function(newPassword ,email, cb) {
+		if (!email) {
 			var err = new Error('No existe el usuario');
 			err.statusCode = 404;
 			return cb(err);
 		}
 
-		//verify passwords match
-		if (!passwords.password ||
-			!passwords.confirmation ||
-			passwords.password !== passwords.confirmation) {
-			var err = new Error('Contraseñas incorrrectas');
-			err.statusCode = 400;
-			return cb(err);
-		}
-
-		Usuario.findById(accessToken.userId, function(err, user) {
+		Usuario.findOne({
+			where: {
+				email:email
+			}
+		}, function(err, usuario) {
 			if (err) {
 				var err = new Error('No existe el usuario');
 				err.statusCode = 404;
 				return cb(err);
 			}
-			user.updateAttribute('password', passwords.password, function(err, user) {
+			usuario.updateAttribute('password',newPassword, function(err, usuario) {
 				if (err) {
 					var err = new Error('Error al actualizar al usuario');
 					err.statusCode = 404;
 					return cb(err);
 				}
-				console.log('> password reset processed successfully');
+				console.log('> contraseña resetada correctamente');
 				return cb(null, 'contraseña modificada correctamente')
 			});
 		});
 	};
 
-	//send verification email after registration
+//Registro
 	Usuario.afterRemote('create', function(context, usuario, next) {
 		console.log('> user.afterRemote triggered');
 
@@ -169,7 +154,7 @@ Usuario.afterRemote('deleteById', function(context, usuario, next) {
 				return next(err);
 			}
 
-			console.log('> verification email sent:', response);
+			console.log('> verificacion email enviado:', response);
 
 			context.res.render('response', {
 				title: 'Registrado exitosamente',
@@ -181,11 +166,10 @@ Usuario.afterRemote('deleteById', function(context, usuario, next) {
 		});
 	});
 
-	//send password reset link when requested
+
 	Usuario.on('resetPasswordRequest', function(info) {
-		var url = 'http://' + config.hostname + ':' + config.port + '/api/Usuarios/reset_password';
-		var html = 'Click <a href="' + url + '?access_token=' +
-			info.accessToken.id + '">Aqui</a> para resaetear tu contraseña';
+		var url = 'http://' + config.hostname + ':' + config.port + '/#/api/Usuario/setPassword/'+ info.email ;
+		var html = 'Click <a href="' + url + '">Aqui</a> para resetear tu contraseña';
 
 		Usuario.app.models.Email.send({
 			to: info.email,
@@ -216,60 +200,20 @@ Usuario.afterRemote('deleteById', function(context, usuario, next) {
 		}
 	);
 
-	Usuario.remoteMethod(
-		'reset_password_get', {
-			description: 'Mostrar el formulario para el cambio de contraseña.',
-			accepts: [{
-				arg: 'access_token',
-				type: 'object',
-				required: true,
-				http: function(ctx) {
-					var req = ctx && ctx.req;
-					var accessToken = req && req.accessToken;
-
-					return accessToken;
-				}
-			}, {
-				arg: 'res',
-				type: 'object',
-				required: true,
-				http: function(ctx) {
-					var res = ctx && ctx.res;
-					return res;
-				}
-			}, ],
-			returns: {
-				arg: 'tokenId',
-				type: 'string'
-			},
-			http: {
-				path: '/reset_password',
-				verb: 'get'
-			},
-		}
-	);
+	
 
 	Usuario.remoteMethod(
 		'reset_password_post', {
 			description: 'Permite generar una nueva contraseña para un usuario.',
 			accepts: [{
-				arg: 'passwords',
-				type: 'object',
-				required: true,
-				http: {
-					source: 'body'
-				}
-			}, {
-				arg: 'access_token',
-				type: 'object',
-				required: true,
-				http: function(ctx) {
-					var req = ctx && ctx.req;
-					var accessToken = req && req.accessToken;
-
-					return accessToken;
-				}
-			}, ],
+				arg: 'newPassword',
+				type: 'string',
+				required: true
+			},{
+				arg: 'email',
+				type: 'string',
+				required: true
+			} ],
 			returns: {
 				arg: 'msg',
 				type: 'string'

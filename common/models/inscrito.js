@@ -5,7 +5,7 @@ var app = require('../../server/server.js');
 
 module.exports = function(Inscrito) {
 
-
+//hook
 Inscrito.observe('before save', function (ctx, next) {
 		if (ctx.isNewInstance) {
 			if (ctx.instance) {

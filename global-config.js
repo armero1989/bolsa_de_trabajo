@@ -1,11 +1,4 @@
-// Copyright IBM Corp. 2014,2015. All Rights Reserved.
-// Node module: loopback-example-offline-sync
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
-/*
- * Global configuration shared by components.
- */
+//Configuracion global
 'use strict';
 
 var url = require('url');
@@ -13,13 +6,11 @@ var url = require('url');
 var conf = {
 	hostname: process.env.HOST || 'localhost',
 	port: process.env.HOSTPORT ||3000,
-	restApiRoot: '/api', // The path where to mount the REST API app
+	restApiRoot: '/api', 
 	legacyExplorer: false
 };
 
-// The URL where the browser client can access the REST API is available.
-// Replace with a full url (including hostname) if your client is being
-// served from a different server than your REST API.
+
 conf.restApiUrl = url.format({
 	protocol: 'http',
 	slashes: true,

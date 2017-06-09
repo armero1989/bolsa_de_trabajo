@@ -1,7 +1,4 @@
-// Copyright IBM Corp. 2014,2015. All Rights Reserved.
-// Node module: loopback-example-offline-sync
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
+//Configuracion local
 
 'use strict';
 
@@ -15,9 +12,8 @@ module.exports = {
   restApiRoot: GLOBAL_CONFIG.restApiRoot,
   livereload: process.env.LIVE_RELOAD,
   isDevEnv: isDevEnv,
-  /*  indexFile: require.resolve(isDevEnv ?
-      '../client/ngapp/index.html' : '../client/dist/index.html'),
-  */
+  
+
   port: GLOBAL_CONFIG.port,
   legacyExplorer: GLOBAL_CONFIG.legacyExplorer,
 
