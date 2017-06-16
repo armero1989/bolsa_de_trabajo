@@ -20,7 +20,7 @@
 	  <li>Sector: {{ oferta.idsector }}</li>
 	  <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
 	  <div ng-hide="currentUser.Empresa">
-  <a ng-show="currentUser" ui-sref="inscribirse"  class="btn btn-success" ui-sref-active="active">Inscribirse</a>
+  <a ng-show="currentUser" ui-sref="inscribirse({id:oferta.id})"  class="btn btn-success" ui-sref-active="active">Inscribirse</a>
   <div>
   </div>
   </ul>

@@ -1,38 +1,36 @@
 <section>
- <form name="form" ng-submit="submitForm()">
-    <fieldset>
-      <legend>{{action}} Inscribirse</legend> 
+ 
 
     <div class="row ">
- <div class="col-sm-8 col-xs-12 col-md-6 col-lg-4" ng-repeat="oferta in Ofertas| orderBy:'-'">
+ <div class="col-xs-12">
  <div class="table table-bordered panel panel-default text-center">
-        
- 
-      <input  class="form-group" type="radio"  ng-model="Oferta.id" value="{{oferta.id}}">
+   <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} Inscribirse</legend>      
       <div class="panel-heading"> 
-            <h3>Puesto:{{oferta.puesto}}</h3></div>
+            <h3>Puesto:{{Oferta.puesto}}</h3></div>
 
   <ul class="nav">
     
-    <li>vacantes:  {{ oferta.vacantes }}</li> 
-    <li>Descripcion:  {{ oferta.descripcion }}</li>
-    <li>Con experiencia :  {{ oferta.experiencia }}</li>
-    <li>En la Provincia :  {{ oferta.provincia }}</li>
-    <li>En la Localidad :  {{ oferta.localidad }}</li>
-    <li>Salario Ofrecido :  {{ oferta.salario_ofrecido }} €</li>    
-    <li>Con las siguientes Condiciones: {{ oferta.condiciones }}</li> 
-    <li>Con las siguientes Otras Consideraciones:   {{ oferta.otras_consideraciones }}</li>
-    <li>Duracion de la Oferta en Meses: {{ oferta.duracion_meses }}</li>
-    <li>Sector: {{ oferta.idsector }}</li>
-    <li>Oferta valida hasta: {{ oferta.fecha_caducidad |date}}</li>
+    <li>vacantes:  {{ Oferta.vacantes }}</li> 
+    <li>Descripcion:  {{ Oferta.descripcion }}</li>
+    <li>Con experiencia :  {{ Oferta.experiencia }}</li>
+    <li>En la Provincia :  {{ Oferta.provincia }}</li>
+    <li>En la Localidad :  {{ Oferta.localidad }}</li>
+    <li>Salario Ofrecido :  {{ Oferta.salario_ofrecido }} €</li>    
+    <li>Con las siguientes Condiciones: {{ Oferta.condiciones }}</li> 
+    <li>Con las siguientes Otras Consideraciones:   {{ Oferta.otras_consideraciones }}</li>
+    <li>Duracion de la Oferta en Meses: {{ Oferta.duracion_meses }}</li>
+    <li>Sector: {{ Oferta.idsector }}</li>
+    <li>Oferta valida hasta: {{ Oferta.fecha_caducidad |date}}</li>
   </ul>
-   
+   <button class="btn btn-success">{{action}} Inscripcion</button>
+     </fieldset>
+  </form>
       </div>
 </div>
 </div>
- <button class="btn btn-success">{{action}} Inscripcion</button>
-     </fieldset>
-  </form>
+ 
 
       
    

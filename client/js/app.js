@@ -116,7 +116,7 @@ angular
         authenticate:true
       })
       .state('inscribirse', {
-        url: '/api/inscritos/',
+        url: '/api/inscritos/:id',
         templateUrl: 'views/inscrito.ejs',
         controller: 'OneInscritoController',
         authenticate:true
