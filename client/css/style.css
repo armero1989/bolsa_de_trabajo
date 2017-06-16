@@ -91,7 +91,7 @@ body {
       border-bottom-right-radius: 0px;
   }
   .panel-heading h3 {
-      font-size: 32px;
+      font-size: 24px;
   }
   .panel-footer {
       background-color: white !important;
@@ -343,7 +343,7 @@ body, html {
         margin-bottom: 35px;
     }
     .panel-heading  h3 {
-      font-size: 22px;
+      font-size: 20px;
   }
   }
   @media screen and (max-width: 480px) {

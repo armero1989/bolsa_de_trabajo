@@ -10,11 +10,11 @@
 	  
 	  <li>CIF:  {{ empresa.cif }}</li>
 	  <li>Direccion :  {{ empresa.direccion}}</li>	
-	  <li>Telefono:  {{ empresa.telefono }}</li>
-	  <li>Email :  {{ empresa.email}}</li>
+	  <li>Telefono:  <a href="tel:{{ empresa.telefono }}">{{ empresa.telefono }}</a></li>
+	  <li>Email :  <a href="mailto:{{empresa.email}}"> {{ empresa.email}}</a></li>
 	  <li>Localidad: {{ empresa.localidad}}</li>
 	  <li>Provincia :  {{ empresa.provincia }}</li>
-	  <li>Url:  {{ empresa.url }}</li>
+	  <li>Url:  <a href="{{ empresa.url }}">{{ empresa.url }}</a></li>
 	  <li>Fax:  {{ empresa.fax }} </li>	
 	  <li>NºEmpleados: {{ empresa.n_empleados }}</li>
 	  <li>Sector:   {{ empresa.idsector }}</li>	

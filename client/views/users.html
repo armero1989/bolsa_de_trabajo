@@ -7,9 +7,9 @@
 
 
   <ul class="nav" ng-show="currentUser.admin">
-	 
-	  <li>Telefono:  {{ usuario.telefono }}</li>
-	  <li>Email :  {{ usuario.email}}</li>
+
+    <li>Telefono: <a href="tel:{{usuario.telefono}}"> {{ usuario.telefono }}</a></li>
+	  <li>Email : <a href="mailto:{{usuario.email}}"> {{ usuario.email}}</a></li>
   </ul>
   <a   ng-show="currentUser.admin" ui-sref="deleteusers({ id: usuario.id })" class="btn btn-success">Borrar {{action}} </a>
   </div>
