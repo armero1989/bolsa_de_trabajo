@@ -165,7 +165,7 @@ angular
     $scope.Ofertas = Oferta.find({
       filter: {
         where: {
-          puesto: $stateParams.puesto
+          puesto: {like: '%'+$stateParams.puesto+'%'}
         }
       },
       include: [
