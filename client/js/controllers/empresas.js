@@ -29,6 +29,7 @@ angular
         $scope.Empresa.provincia,$scope.Empresa.localidad,$scope.Empresa.telefono,$scope.Empresa.url,$scope.Empresa.fax,
         $scope.Empresa.n_empleados,$scope.Empresa.idsector)
         .then(function() {
+          state.go('empresas');
         });
     };
 

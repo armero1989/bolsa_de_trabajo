@@ -28,7 +28,7 @@ Oferta.observe('before save', function (ctx, next) {
 
 		var html = '<h1>La oferta ' + oferta.puesto + ' se ha registrado en la web</h1>' +
 			'<h2>Con las siguientes Caracteristicas</h2><hr>' +
-			'<ul>	<li>vacantes: ' + oferta.vacantes +
+			'<ul>	<li>Vacantes: ' + oferta.vacantes +
 			'</li>	<li>Descripcion: ' + oferta.descripcion +
 			'</li>	<li>Con experiencia : ' + oferta.experiencia +
 			'</li>	<li>En la Provincia : ' + oferta.provincia +

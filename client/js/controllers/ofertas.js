@@ -35,7 +35,9 @@ angular
           $scope.Oferta.localidad, $scope.Oferta.salario_ofrecido,
           $scope.Oferta.condiciones, $scope.Oferta.otras_consideraciones, $scope.Oferta.duracion_meses,
           $scope.Oferta.fecha_caducidad,$scope.Oferta.idsector, $scope.Oferta.cerrada)
-        .then(function() {});
+        .then(function() {
+          state.go('ofertas');
+        });
     };
 
   }])
