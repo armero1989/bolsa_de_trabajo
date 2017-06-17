@@ -8,41 +8,41 @@
  <span id="reauth-email" class="reauth-email"></span>
       <div class="form-group">
         <label>Puesto</label>
-       <input class="form-control"  type="text" ng-model="Oferta.puesto" placeholder="Puesto">
+       <input class="form-control"  type="text" ng-model="Oferta.puesto" placeholder="Puesto" required>
         <p class="alert alert-danger" ng-show="form.puesto.$error.required && submitted">Puesto es Requerido</p>
       </div>
 
       <div class="form-group">
         <label>Vacantes</label>
-        <input class="form-control" type="number" min="0" ng-model="Oferta.vacantes" placeholder="Vacantes">
+        <input class="form-control" type="number" min="0" ng-model="Oferta.vacantes" placeholder="Vacantes" required>
         <p class="alert alert-danger" ng-show="form.vacantes.$error.required && submitted">
             Vacantes es Requerido</p>
       </div>
 
         <div class="form-group">
         <label>Descripcion</label>
-        <input class="form-control" type="text" ng-model="Oferta.descripcion" placeholder="descripcion">
+        <input class="form-control" type="text" ng-model="Oferta.descripcion" placeholder="descripcion" required>
         <p class="alert alert-danger" ng-show="form.descripcion.$error.required && submitted">
             descripcion es Requerido</p>
       </div>
 
       <div class="form-group">
         <label>Experiencia</label>
-        <input class="form-control" type="text" ng-model="Oferta.experiencia" placeholder="Experiencia">
+        <input class="form-control" type="text" ng-model="Oferta.experiencia" placeholder="Experiencia" required>
         <p class="alert alert-danger" ng-show="form.experiencia.$error.required && submitted">
             Experiencia es Requerida</p>
       </div>
 
        <div class="form-group">
         <label>Provincia</label>
-        <input class="form-control" type="text" ng-model="Oferta.provincia" placeholder="Provincia">
+        <input class="form-control" type="text" ng-model="Oferta.provincia" placeholder="Provincia" required>
         <p class="alert alert-danger" ng-show="form.provincia.$error.required && submitted">
             Provincia es Requerida</p>
       </div>
 
       <div class="form-group">
         <label>Localidad</label>
-        <input class="form-control" type="text" ng-model="Oferta.localidad" placeholder="Localidad">
+        <input class="form-control" type="text" ng-model="Oferta.localidad" placeholder="Localidad" required>
         <p class="alert alert-danger" ng-show="form.localidad.$error.required && submitted">
             Localidad es Requerida</p>
       </div>
@@ -55,7 +55,7 @@
 
       <div class="form-group">
         <label>Salario Ofrecido</label>
-        <input class="form-control" type="number" min="0" ng-model="Oferta.salario_ofrecido" placeholder="Salario Ofrecido">
+        <input class="form-control" type="number" min="0" ng-model="Oferta.salario_ofrecido" placeholder="Salario Ofrecido" required>
         <p class="alert alert-danger" ng-show="form.salario_ofrecido.$error.required && submitted">
             Salario Ofrecido es Requerido</p>
       </div>
@@ -77,14 +77,14 @@
      
  	<div class="form-group">
         <label>Duracion Meses</label>
-        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" min="0" max="12" placeholder="Duracion Meses">
+        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" min="0" max="12" placeholder="Duracion Meses" required>
         <p class="alert alert-danger" ng-show="form.duracion_meses.$error.required && submitted">
           Duracion Meses es Requerido</p>
       </div>
     
       <div class="form-group">
         <label>Fecha de Caducidad</label>
-        <input class="form-control" type="text" ng-model="Oferta.fecha_caducidad| date:'yyyy-MM-dd'" placeholder="Formato:'YYYY-MM-DD'" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
+        <input class="form-control" type="text" ng-model="Oferta.fecha_caducidad| date:'yyyy-MM-dd'" placeholder="Formato:'YYYY-MM-DD'" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" required>
         <p class="alert alert-danger" ng-show="form.fecha_caducidad.$error.required && submitted">
           Fecha de Caducidad es Requerido</p>
       </div>
