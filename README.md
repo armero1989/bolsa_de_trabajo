@@ -25,15 +25,15 @@ Para el puerto por defecto es 3000 sino hay variable.
 
 Para el la direcion de la Base de Datos por defecto es localhost sino hay variable.
 
--export DB_USER
+- export DB_USER
 
 Para el usuario de base de datos.
 
--export DB_PASSWORD
+- export DB_PASSWORD
 
 Para el contraseña de base de datos.
 
--export EMAIL_USER
+- export EMAIL_USER
 
 Para el email de Servidor de Correo debe de ser gmail.
 
