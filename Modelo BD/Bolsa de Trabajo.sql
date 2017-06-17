@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2017 at 07:07 PM
+-- Generation Time: Jun 17, 2017 at 07:00 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -28,6 +28,7 @@ USE `empleo`;
 -- Table structure for table `AccessToken`
 --
 
+DROP TABLE IF EXISTS `AccessToken`;
 CREATE TABLE `AccessToken` (
   `id` varchar(255) NOT NULL,
   `ttl` int(11) DEFAULT NULL,
@@ -42,6 +43,7 @@ CREATE TABLE `AccessToken` (
 -- Table structure for table `ACL`
 --
 
+DROP TABLE IF EXISTS `ACL`;
 CREATE TABLE `ACL` (
   `id` int(11) NOT NULL,
   `model` varchar(512) DEFAULT NULL,
@@ -58,6 +60,7 @@ CREATE TABLE `ACL` (
 -- Table structure for table `Demandante`
 --
 
+DROP TABLE IF EXISTS `Demandante`;
 CREATE TABLE `Demandante` (
   `id` int(11) NOT NULL,
   `nombre` varchar(512) DEFAULT NULL,
@@ -82,6 +85,7 @@ CREATE TABLE `Demandante` (
 -- Table structure for table `Empresa`
 --
 
+DROP TABLE IF EXISTS `Empresa`;
 CREATE TABLE `Empresa` (
   `id` int(11) NOT NULL,
   `cif` varchar(512) NOT NULL,
@@ -105,6 +109,7 @@ CREATE TABLE `Empresa` (
 -- Table structure for table `Inscrito`
 --
 
+DROP TABLE IF EXISTS `Inscrito`;
 CREATE TABLE `Inscrito` (
   `id` int(11) NOT NULL,
   `userId` int(11) DEFAULT NULL,
@@ -117,6 +122,7 @@ CREATE TABLE `Inscrito` (
 -- Table structure for table `Oferta`
 --
 
+DROP TABLE IF EXISTS `Oferta`;
 CREATE TABLE `Oferta` (
   `id` int(11) NOT NULL,
   `puesto` varchar(512) NOT NULL,
@@ -125,6 +131,7 @@ CREATE TABLE `Oferta` (
   `experiencia` varchar(512) NOT NULL,
   `provincia` varchar(512) NOT NULL,
   `localidad` varchar(512) NOT NULL,
+  `telefono` varchar(512) DEFAULT NULL,
   `salario_ofrecido` int(11) NOT NULL,
   `condiciones` varchar(512) DEFAULT NULL,
   `duracion_meses` int(11) NOT NULL,
@@ -143,6 +150,7 @@ CREATE TABLE `Oferta` (
 -- Table structure for table `Role`
 --
 
+DROP TABLE IF EXISTS `Role`;
 CREATE TABLE `Role` (
   `id` int(11) NOT NULL,
   `name` varchar(512) NOT NULL,
@@ -157,6 +165,7 @@ CREATE TABLE `Role` (
 -- Table structure for table `RoleMapping`
 --
 
+DROP TABLE IF EXISTS `RoleMapping`;
 CREATE TABLE `RoleMapping` (
   `id` int(11) NOT NULL,
   `principalType` varchar(512) DEFAULT NULL,
@@ -170,6 +179,7 @@ CREATE TABLE `RoleMapping` (
 -- Table structure for table `User`
 --
 
+DROP TABLE IF EXISTS `User`;
 CREATE TABLE `User` (
   `id` int(11) NOT NULL,
   `realm` varchar(512) DEFAULT NULL,
@@ -186,6 +196,7 @@ CREATE TABLE `User` (
 -- Table structure for table `Usuario`
 --
 
+DROP TABLE IF EXISTS `Usuario`;
 CREATE TABLE `Usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(512) NOT NULL,
@@ -293,12 +304,12 @@ ALTER TABLE `Empresa`
 -- AUTO_INCREMENT for table `Inscrito`
 --
 ALTER TABLE `Inscrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `Oferta`
 --
 ALTER TABLE `Oferta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `Role`
 --
