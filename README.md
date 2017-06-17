@@ -44,7 +44,7 @@ Para el contraseña de base de datos.
 
 Para el email de Servidor de Correo debe de ser gmail.
 
--export EMAIL_PASSWORD
+- export EMAIL_PASSWORD
 
 Para el  contraseña de Servidor de Correo debe de ser gmail.
 
