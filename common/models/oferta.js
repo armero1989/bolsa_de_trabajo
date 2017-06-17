@@ -33,7 +33,8 @@ Oferta.observe('before save', function (ctx, next) {
 			'</li>	<li>Con experiencia : ' + oferta.experiencia +
 			'</li>	<li>En la Provincia : ' + oferta.provincia +
 			'</li>	<li>En la Localidad : ' + oferta.localidad +
-			'</li>	<li>Salario Ofrecido : ' + oferta.salario_ofrecido +'€'+
+			'</li>	<li>Telefono : <a href="tel:'+oferta.telefono+'">' + oferta.telefono +
+			'</a> </li>	<li>Salario Ofrecido : ' + oferta.salario_ofrecido +'€'+
 			'</li>	<li>Con las siguientes Condiciones:' + oferta.condiciones +
 			'</li>	<li>Con las siguientes Otras Consideraciones:' + oferta.otras_consideraciones +
 			'</li>	<li>Duracion de la Oferta en Meses:' + oferta.duracion_meses +

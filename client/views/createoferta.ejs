@@ -47,6 +47,11 @@
             Localidad es Requerida</p>
       </div>
 
+      <div class="form-group">
+        <label>Telefono de la Empresa</label>
+       <input class="form-control"  type="tel" ng-model="Oferta.telefono" placeholder="telefono" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+        <p class="alert alert-danger" ng-show="form.telefono.$error.required && submitted">telefono es Requerido</p>
+      </div>
 
       <div class="form-group">
         <label>Salario Ofrecido</label>

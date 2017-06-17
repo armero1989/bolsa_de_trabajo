@@ -32,6 +32,9 @@
       "type": "string",
       "required": true
     },
+    "telefono": {
+      "type": "string"
+    },
     "salario_ofrecido": {
       "type": "number",
       "required": true
