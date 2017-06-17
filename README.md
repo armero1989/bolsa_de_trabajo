@@ -9,6 +9,11 @@ Para descargarte el proyecto haz lo siguiente:
 	 cd bolsa_de_trabajo
 	 npm install
 
+Tambien deberas crear una base de datos llamada empleo para ello necesitaras los comandos:
+
+	mysql -u root -p
+	create database empleo;
+
 Para ejecutar la Bolsa de Empleo necesitaras  las siguientes variables en el .porfile 
 de tu carpeta personal de tu linux:
 
