@@ -36,7 +36,7 @@ angular
           $scope.Oferta.condiciones, $scope.Oferta.otras_consideraciones, $scope.Oferta.duracion_meses,
           $scope.Oferta.fecha_caducidad,$scope.Oferta.idsector, $scope.Oferta.cerrada)
         .then(function() {
-          state.go('ofertas');
+        
         });
     };
 
