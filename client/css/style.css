@@ -73,7 +73,7 @@ body {
       transition: box-shadow 0.5s;
   }
   .altura{
-    height: 650px;
+    height: 700px;
   }
   .panel:hover {
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
