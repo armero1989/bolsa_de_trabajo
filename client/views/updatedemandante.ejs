@@ -8,13 +8,13 @@
  <span id="reauth-email" class="reauth-email"></span>
       <div class="form-group">
         <label>Nombre</label>
-       <input class="form-control"  type="text" ng-model="Demandante.nombre" placeholder="nombre"required>
+       <input class="form-control"  type="text" ng-model="Demandante.nombre" placeholder="nombre"required maxlength="15">
         <p class="alert alert-danger" ng-show="form.nombre.$error.required && submitted">nombre es Requerido</p>
       </div>
 
       <div ng-hide="currentUser.Empresa" class="form-group">
         <label>Apellidos</label>
-        <input class="form-control" type="text" ng-model="Demandante.apellidos" placeholder="apellidos">
+        <input class="form-control" type="text" ng-model="Demandante.apellidos" placeholder="apellidos" maxlength="15">
         <p class="alert alert-danger" ng-show="form.apellidos.$error.required && submitted">
             apellidos es Requerido</p>
       </div>
@@ -42,7 +42,7 @@
 
       <div class="form-group">
         <label>Telefono</label>
-        <input class="form-control" type="tel" ng-model="Demandante.telefono" placeholder="telefono" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required>
+        <input class="form-control" type="tel" ng-model="Demandante.telefono" placeholder="telefono" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required maxlength="15">
         <p class="alert alert-danger" ng-show="form.telefono.$error.required && submitted">
             telefono es Requerida</p>
       </div>
@@ -77,14 +77,14 @@
 
      <div  ng-hide="currentUser.Empresa" class="form-group">
         <label>Experiencia</label>
-        <input class="form-control" type="text" ng-model="Demandante.experiencia" placeholder="experiencia">
+        <input class="form-control" type="text" ng-model="Demandante.experiencia" placeholder="experiencia"maxlength="45">
         <p class="alert alert-danger" ng-show="form.experiencia.$error.required && submitted">
            experiencia es Requerido</p>
       </div>
      
  	<div  ng-hide="currentUser.Empresa" class="form-group">
         <label>Idiomas</label>
-        <input class="form-control" type="number" ng-model="Demandante.idiomas" placeholder="idiomas">
+        <input class="form-control" type="number" ng-model="Demandante.idiomas" placeholder="idiomas" maxlength="35">
         <p class="alert alert-danger" ng-show="form.idiomas.$error.required && submitted">
           idiomas es Requerido</p>
       </div>

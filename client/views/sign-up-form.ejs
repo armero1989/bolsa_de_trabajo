@@ -19,7 +19,7 @@
       
  <div class="form-group">
         <label>Telefono</label>
-        <input class="form-control" type="text" ng-model="user.telefono" placeholder="Telefono de Contacto" value="" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required>
+        <input class="form-control" type="text" ng-model="user.telefono" placeholder="Telefono de Contacto" value="" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required maxlength="15">
         <p class="alert alert-danger" ng-show="form.fecha_nac.$error.required && submitted">
           Fecha de Nacimiento es Requerido</p>
       </div>
@@ -31,7 +31,7 @@
 
       <div class="form-group">
         <label>Password</label>
-        <input class="form-control" name="password" type="password" ng-model="user.password" placeholder="Contraseña" required>
+        <input class="form-control" name="password" type="password" ng-model="user.password" placeholder="Contraseña" required maxlength="15">
         <p class="alert alert-danger" ng-show="form.password.$error.required && submitted">
             Contraseña es Requerida</p>
       </div>

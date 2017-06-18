@@ -6,50 +6,50 @@
     <fieldset>
       <legend>{{action}}&nbsp;Oferta:</legend>
  <span id="reauth-email" class="reauth-email"></span>
-      <div class="form-group">
+        <div class="form-group">
         <label>Puesto</label>
-       <input class="form-control"  type="text" ng-model="Oferta.puesto" placeholder="Puesto" required>
+       <input class="form-control"  type="text" ng-model="Oferta.puesto" placeholder="Puesto" required maxlength="15">
         <p class="alert alert-danger" ng-show="form.puesto.$error.required && submitted">Puesto es Requerido</p>
       </div>
 
       <div class="form-group">
         <label>Vacantes</label>
         <input class="form-control" type="number" min="0" ng-model="Oferta.vacantes" placeholder="Vacantes" required>
-        <p class="alert alert-danger" ng-show="form.vacantes.$error.required && submitted">
+        <p class="alert alert-danger" ng-show="form.vacantes.$error.required && submitted" min="0">
             Vacantes es Requerido</p>
       </div>
 
         <div class="form-group">
         <label>Descripcion</label>
-        <input class="form-control" type="text" ng-model="Oferta.descripcion" placeholder="descripcion" required>
+        <input class="form-control" type="text" ng-model="Oferta.descripcion" placeholder="descripcion" required maxlength="45">
         <p class="alert alert-danger" ng-show="form.descripcion.$error.required && submitted">
             descripcion es Requerido</p>
       </div>
 
       <div class="form-group">
         <label>Experiencia</label>
-        <input class="form-control" type="text" ng-model="Oferta.experiencia" placeholder="Experiencia" required>
+        <input class="form-control" type="text" ng-model="Oferta.experiencia" placeholder="Experiencia" required maxlength="45">
         <p class="alert alert-danger" ng-show="form.experiencia.$error.required && submitted">
             Experiencia es Requerida</p>
       </div>
 
        <div class="form-group">
         <label>Provincia</label>
-        <input class="form-control" type="text" ng-model="Oferta.provincia" placeholder="Provincia" required>
+        <input class="form-control" type="text" ng-model="Oferta.provincia" placeholder="Provincia" required maxlength="20">
         <p class="alert alert-danger" ng-show="form.provincia.$error.required && submitted">
             Provincia es Requerida</p>
       </div>
 
       <div class="form-group">
         <label>Localidad</label>
-        <input class="form-control" type="text" ng-model="Oferta.localidad" placeholder="Localidad" required>
+        <input class="form-control" type="text" ng-model="Oferta.localidad" placeholder="Localidad" required maxlength="20">
         <p class="alert alert-danger" ng-show="form.localidad.$error.required && submitted">
             Localidad es Requerida</p>
       </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <label>Telefono de la Empresa</label>
-       <input class="form-control"  type="tel" ng-model="Oferta.telefono" placeholder="telefono" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+       <input class="form-control"  type="tel" ng-model="Oferta.telefono" placeholder="telefono" pattern="^(?:0|\(?\+34\)?\s?|0034\s?)[1-79](?:[\.\-\s]?\d\d){4}$" maxlength="15">
         <p class="alert alert-danger" ng-show="form.telefono.$error.required && submitted">telefono es Requerido</p>
       </div>
 
@@ -62,7 +62,7 @@
 
        <div class="form-group">
         <label>Condiciones</label>
-        <input class="form-control" type="text" ng-model="Oferta.condiciones" placeholder="Condiciones">
+        <input class="form-control" type="text" ng-model="Oferta.condiciones" placeholder="Condiciones"maxlength="45">
         <p class="alert alert-danger" ng-show="form.condiciones.$error.required && submitted">
             Condiciones es Requerido</p>
       </div>
@@ -70,21 +70,21 @@
 
      <div class="form-group">
         <label>Otras Consideraciones</label>
-        <input class="form-control" type="text" ng-model="Oferta.otras_consideraciones" placeholder="Otras Consideraciones">
+        <input class="form-control" type="text" ng-model="Oferta.otras_consideraciones" placeholder="Otras Consideraciones" maxlength="45">
         <p class="alert alert-danger" ng-show="form.otras_consideraciones.$error.required && submitted">
            Otras Consideraciones es Requerido</p>
       </div>
      
- 	<div class="form-group">
+  <div class="form-group">
         <label>Duracion Meses</label>
-        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" min="0" max="12" placeholder="Duracion Meses" required>
+        <input class="form-control" type="number" ng-model="Oferta.duracion_meses" placeholder="Duracion Meses" min="0" max="12" required>
         <p class="alert alert-danger" ng-show="form.duracion_meses.$error.required && submitted">
           Duracion Meses es Requerido</p>
       </div>
     
       <div class="form-group">
         <label>Fecha de Caducidad</label>
-        <input class="form-control" type="text" ng-model="Oferta.fecha_caducidad| date:'yyyy-MM-dd'" placeholder="Formato:'YYYY-MM-DD'" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" required>
+        <input class="form-control" type="text" ng-model="Oferta.fecha_caducidad" placeholder="Formato:'YYYY-MM-DD'" value="" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" required>
         <p class="alert alert-danger" ng-show="form.fecha_caducidad.$error.required && submitted">
           Fecha de Caducidad es Requerido</p>
       </div>

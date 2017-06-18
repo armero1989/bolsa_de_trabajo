@@ -19,7 +19,7 @@
 
       <div class="form-group">
         <label>Password</label>
-        <input class="form-control" type="password" ng-model="user.password" placeholder="Contraseña" required>
+        <input class="form-control" type="password" ng-model="user.password" placeholder="Contraseña" required maxlength="15">
         <p class="alert alert-danger" ng-show="form.password.$error.required && submitted">
             Password es Requerida</p>
       </div>
