@@ -75,6 +75,9 @@ body {
   .altura{
     height: 700px;
   }
+  .altura2{
+    height: 800px;
+  }
   .panel:hover {
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
