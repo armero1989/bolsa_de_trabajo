@@ -25,6 +25,7 @@ angular
       }
 
      $scope.create = function() {
+      $scope.showResult = true;
       EmpreService.create($scope.Empresa.cif,$scope.Empresa.nombre,$scope.Empresa.direccion,$scope.Empresa.email,
         $scope.Empresa.provincia,$scope.Empresa.localidad,$scope.Empresa.telefono,$scope.Empresa.url,$scope.Empresa.fax,
         $scope.Empresa.n_empleados,$scope.Empresa.idsector)

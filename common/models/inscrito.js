@@ -5,18 +5,18 @@ var app = require('../../server/server.js');
 
 module.exports = function(Inscrito) {
 
-//hook
-Inscrito.observe('before save', function (ctx, next) {
+	//hook
+	Inscrito.observe('before save', function(ctx, next) {
 		if (ctx.isNewInstance) {
 			if (ctx.instance) {
 				ctx.instance.unsetAttribute('userId');
-				ctx.instance.userId=ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
+				ctx.instance.userId = ctx.options && ctx.options.accessToken && ctx.options.accessToken.userId;
 			} else {
-				
+
 			}
 		}
 		next();
-});
+	});
 
 
 	//enviar correo electrónico al administrador cuando se cree un nueva inscripcion nueva
@@ -28,6 +28,24 @@ Inscrito.observe('before save', function (ctx, next) {
 				id: inscrito.userId
 			}
 		}, function(err, usuario) {
+			inscrito.updateAttribute('nombre', usuario.nombre, function(err, inscrito) {
+				if (err) {
+					var err = new Error('Error al al actualizar userid de Demandante ');
+					err.statusCode = 404;
+					next(err);
+				}
+				inscrito.updateAttribute('email', usuario.email, function(err, inscrito) {
+					if (err) {
+						var err = new Error('Error al al actualizar userid de Demandante ');
+						err.statusCode = 404;
+						next(err);
+					}
+				inscrito.updateAttribute('telefono', usuario.telefono, function(err, inscrito) {
+					if (err) {
+						var err = new Error('Error al al actualizar userid de Demandante ');
+						err.statusCode = 404;
+						next(err);
+					}
 			Oferta.findOne({
 				where: {
 					id: inscrito.ofertaId
@@ -69,7 +87,10 @@ Inscrito.observe('before save', function (ctx, next) {
 				
 			});
 		});
+});
+});
 
+});
 	});
 
 

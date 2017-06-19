@@ -80,11 +80,6 @@ angular
         templateUrl: 'views/ofertas.html',
         controller: 'AllOfertasController'
       })
-      .state('forbidden', {
-        url: '/api/usuarios/usuario_resetPassword',
-        templateUrl: 'views/forbidden.ejs',
-        controller:'AuthResetController'
-      })
        .state('creaempresa', {
         url: '/api/Empresas/',
         templateUrl: 'views/createempresa.ejs',

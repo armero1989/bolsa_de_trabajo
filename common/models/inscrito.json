@@ -7,7 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-   
+    "nombre":{
+      "type": "string"
+    },
+   "email": {
+      "type": "string"
+    },
+   "telefono": {
+      "type": "string"
+    }
   },
   "validations": [],
   "relations": {

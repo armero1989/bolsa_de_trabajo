@@ -2898,40 +2898,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Usuario#reset_password_get
-             * @methodOf lbServices.Usuario
-             *
-             * @description
-             *
-             * Mostrar el formulario para el cambio de contraseña.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `access_token` – `{object}` -
-             *
-             *  - `res` – `{object}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `tokenId` – `{string=}` -
-             */
-            "reset_password_get": {
-              url: urlBase + "/Usuarios/reset_password",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
              * @name lbServices.Usuario#reset_password_post
              * @methodOf lbServices.Usuario
              *
@@ -2946,9 +2912,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object} postData Request data.
              *
-             *  - `passwords` – `{object}` -
+             *  - `newPassword` – `{string}` -
              *
-             *  - `access_token` – `{object}` -
+             *  - `email` – `{string}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -6547,10 +6513,42 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * Data properties:
              *
-             *  - `msg` – `{string=}` -
+             *  - `Demandantes` – `{number=}` -
              */
             "usuariosInscritos": {
               url: urlBase + "/Ofertas/:id/usuariosInscritos",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Oferta#usuariosInscritosDetalle
+             * @methodOf lbServices.Oferta
+             *
+             * @description
+             *
+             * Devuelve el número de demandantes inscritos en la oferta
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{integer}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `inscrito` – `{json=}` -
+             */
+            "usuariosInscritosDetalle": {
+              url: urlBase + "/Ofertas/:id/usuariosInscritosDetalle",
               method: "GET",
             },
 

@@ -43,45 +43,45 @@ Oferta.observe('before save', function (ctx, next) {
 			'</li></ul>' +
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
 			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
-				
-				Oferta.app.models.Email.send({
-					to: config.admin.email,
-					from: config.emailDs.transports[0].auth.user,
-					subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
-					text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
-					html: html
-				}, function(err, mail) {
-					if (err) throw err;
-					console.log('email sent!');
-					next();
-				});
-	
+
+		Oferta.app.models.Email.send({
+			to: config.admin.email,
+			from: config.emailDs.transports[0].auth.user,
+			subject: 'Nueva Oferta de ' + oferta.puesto + ' en la localidad de : ' + oferta.localidad + '. Registrada en la Bolsa de Trabajo',
+			text: 'La oferta ' + oferta.puesto + ' se ha registrado en la web',
+			html: html
+		}, function(err, mail) {
+			if (err) throw err;
+			console.log('email sent!');
+			next();
+		});
+
 	});
-//borrado oferta
-Oferta.afterRemote('deleteById', function(context, oferta, next) {
+	//borrado oferta
+	Oferta.afterRemote('deleteById', function(context, oferta, next) {
 		var Empresa = app.models.Empresa;
-		var Demandante =app.models.Demandante;
+		var Demandante = app.models.Demandante;
 
 		var html = '<h1>Se ha borrado una Oferta en la web</h1>' +
-			
+
 			'<p style="text-align:center;">Gracias por confiar en nuestra Bolsa de Trabajo.</p>' +
 			'<p style="text-align:center;">Un saludo el Administrador de la Bolsa de Trabajo.</p>';
-				
-				Oferta.app.models.Email.send({
-					to: config.admin.email,
-					from: config.emailDs.transports[0].auth.user,
-					subject: 'Oferta Borrada en la Bolsa de Trabajo',
-					text: 'Oferta Borrada en la Bolsa de Trabajo',
-					html: html
-				}, function(err, mail) {
-					if (err) throw err;
-					console.log('email sent!');
-					next();
-				});
-	
+
+		Oferta.app.models.Email.send({
+			to: config.admin.email,
+			from: config.emailDs.transports[0].auth.user,
+			subject: 'Oferta Borrada en la Bolsa de Trabajo',
+			text: 'Oferta Borrada en la Bolsa de Trabajo',
+			html: html
+		}, function(err, mail) {
+			if (err) throw err;
+			console.log('email sent!');
+			next();
+		});
+
 	});
 
-//Inscritos en...
+	//Inscritos en...
 	Oferta.usuariosInscritos = function(id, cb) {
 		var Inscrito = app.models.Inscrito;
 
@@ -116,6 +116,39 @@ Oferta.afterRemote('deleteById', function(context, oferta, next) {
 		}
 	);
 
+Oferta.usuariosInscritosDetalle = function(id, cb) {
+		var Inscrito = app.models.Inscrito;
+		var Usuario =app.models.Usuario
+		Inscrito.find({
+			where:{
+			ofertaId: id
+		}
+		}, function(err, inscrito) {
+			if (err) return cb(err);
+			return cb(null, (inscrito));
+		});
 
+
+	};
+
+
+	Oferta.remoteMethod(
+		'usuariosInscritosDetalle', {
+			description: 'Devuelve el número de demandantes inscritos en la oferta',
+			accepts: [{
+				arg: 'id',
+				type: 'integer',
+				required: true
+			}],
+			returns: {
+				arg: 'inscrito',
+				type: 'json'
+			},
+			http: {
+				path: '/:id/usuariosInscritosDetalle',
+				verb: 'get'
+			},
+		}
+);
 
 };

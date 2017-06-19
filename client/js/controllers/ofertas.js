@@ -32,6 +32,7 @@ angular
     }
 
     $scope.create = function() {
+      $scope.showResult = true;
       OfertService.create($scope.Oferta.puesto, $scope.Oferta.vacantes, $scope.Oferta.descripcion, $scope.Oferta.experiencia, $scope.Oferta.provincia,
           $scope.Oferta.localidad,$scope.Oferta.telefono, $scope.Oferta.salario_ofrecido,
           $scope.Oferta.condiciones, $scope.Oferta.otras_consideraciones, $scope.Oferta.duracion_meses,
@@ -150,7 +151,7 @@ angular
         "cerrada"
       ]
     });
-  $scope.inscritos=Oferta.usuariosInscritos({
+  $scope.inscritos=Oferta.usuariosInscritosDetalle({
     id:$stateParams.id
   });
    
